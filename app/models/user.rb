@@ -1,3 +1,4 @@
 class User < ActiveRecord::Base
-	has_many :sounds, :tags
+	has_many :sounds
+  # has_many :tags
 end
