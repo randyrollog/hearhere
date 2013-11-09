@@ -1,5 +1,13 @@
 class SoundsController < ApplicationController
 
+  def index
+    @sounds = Sound.all
+  end
+
+  def show
+    @sound = Sound.find(params[:id])
+  end
+
   def create
     @sound = Sound.create( sound_params )
   end

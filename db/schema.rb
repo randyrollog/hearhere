@@ -11,19 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131108021044) do
+ActiveRecord::Schema.define(version: 20131109012435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "sounds", force: true do |t|
-    t.string   "sound_name"
     t.string   "description"
     t.integer  "rating"
     t.string   "location"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sound_file_file_name"
+    t.string   "sound_file_content_type"
+    t.integer  "sound_file_file_size"
+    t.datetime "sound_file_updated_at"
   end
 
   add_index "sounds", ["user_id"], name: "index_sounds_on_user_id", using: :btree
