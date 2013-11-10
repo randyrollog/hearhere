@@ -1,3 +1,17 @@
+ create_table "sounds", force: true do |t|
+   
+  end
+
+<h1>Sound Data!</h1>
+ <%= @sound.sound_file_file_name %>
+ <%= @sound.sound_file_content_type %>
+ <%= @sound.sound_file_file_size %>
+ <%= @sound.sound_file_updated_at %>
+ <%= @sound.description %>
+ <%= @sound.rating %>
+ <%= @sound.location %>
+ <%= @sound.user_id %>
+ <%= @sound.created_at %>
+ <%= @sound.updated_at %>
+
 <%= image_tag @sound.sound_file.url %>
-<%= image_tag @user.sound_file.url(:medium) %>
-<%= image_tag @user.sound_file.url(:thumb) %>

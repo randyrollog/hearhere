@@ -8,6 +8,10 @@ class SoundsController < ApplicationController
     @sound = Sound.find(params[:id])
   end
 
+  def new
+    @sound = Sound.new(sound_file_file_name: params[:sound_file_file_name])
+  end
+
   def create
     @sound = Sound.create( sound_params )
   end
@@ -18,7 +22,11 @@ class SoundsController < ApplicationController
   # Be sure to update your create() and update() controller methods.
 
   def sound_params
-    params.require(:sound).permit(:sound_file)
+    params.require(:sound).permit(
+      :sound_file,
+      :sound_file_file_name,
+      :description,
+      :location)
   end
 
 end
