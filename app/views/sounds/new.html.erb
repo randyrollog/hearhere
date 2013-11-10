@@ -1,7 +1,8 @@
 <%= form_for @sound, :url => sounds_path, :html => { :multipart => true } do |form| %>
-  <%= form.text_field :sound_file_file_name, placeholder: "File name" %>
+  <%= form.text_field :sound_name, placeholder: "Sound name" %>
   <%= form.text_field :description, placeholder: "Description" %>
   <%= form.text_field :location, placeholder: "Location" %>
 
   <%= form.file_field :sound_file %>
+  <%= form.submit %>
 <% end %>

@@ -14,6 +14,7 @@ class SoundsController < ApplicationController
 
   def create
     @sound = Sound.create( sound_params )
+    redirect_to sound_url
   end
 
   private
@@ -24,7 +25,7 @@ class SoundsController < ApplicationController
   def sound_params
     params.require(:sound).permit(
       :sound_file,
-      :sound_file_file_name,
+      :sound_name,
       :description,
       :location)
   end
