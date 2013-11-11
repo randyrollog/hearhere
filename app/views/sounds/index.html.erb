@@ -1,1 +1,12 @@
 <h1>Sounds index</h1>
+
+<% @sounds.each do |sound| %>
+  <%= sound.sound_name %>
+  <%= sound.rating %>
+  <%= sound.user_id %>
+  <%= sound.sound_file_file_name %>
+  <%= sound.sound_file_content_type %>
+  <%= sound.sound_file_file_size %>
+  <%= sound.sound_file_updated_at %>
+  <br>
+<% end %>
