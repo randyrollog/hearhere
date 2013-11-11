@@ -2,10 +2,10 @@ HearHere::Application.routes.draw do
 
   root 'welcome#index'
   
-  resources :users
-  resources :sounds
-  resources :authentications
+  get 'sound/:id' => 'sound#download', :as => :download
 
+  resources :users, :sounds, :authentications
+  
   delete "authentications/:id" => "authentications#destroy"
   
   # resources :tags

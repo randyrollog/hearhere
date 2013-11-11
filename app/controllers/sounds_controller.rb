@@ -17,6 +17,15 @@ class SoundsController < ApplicationController
     redirect_to sound_url(@sound)
   end
 
+  def download
+    @sound= Sound.find(params[:id])
+
+    send_file @sound.sound_file.path,
+              :filename => @sound.sound_file_file_name,
+              :type => @sound.sound_file_content_type,
+              :disposition => 'attachment'
+  end
+
   private
 
   # Use strong_parameters for attribute whitelisting
