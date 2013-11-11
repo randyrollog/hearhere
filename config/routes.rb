@@ -4,6 +4,7 @@ HearHere::Application.routes.draw do
   
   resources :users
   resources :sounds
+  resources :authentications
 
   delete "authentications/:id" => "authentications#destroy"
   
