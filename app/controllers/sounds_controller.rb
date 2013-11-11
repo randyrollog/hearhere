@@ -14,7 +14,7 @@ class SoundsController < ApplicationController
 
   def create
     @sound = Sound.create( sound_params )
-    redirect_to sound_url
+    redirect_to sound_url(@sound)
   end
 
   private
