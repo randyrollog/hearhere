@@ -2,7 +2,7 @@ HearHere::Application.routes.draw do
 
   root 'welcome#index'
   
-  get 'sound/:id' => 'sound#download', :as => :download
+  get 'sounds/:id' => 'sounds#download', :as => :download
 
   resources :users, :sounds, :authentications
   
