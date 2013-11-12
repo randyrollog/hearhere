@@ -17,6 +17,24 @@ class SoundsController < ApplicationController
     redirect_to sound_url(@sound)
   end
 
+  def edit
+    @sound = Sound.find(params[:id])
+  end
+
+  def update
+    @sound = Sound.find(params[:id])
+    if @sound.update(sound_params)
+      redirect_to sound_url(@sound)
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    Sound.find(params[:id]).destroy
+    redirect_to sounds_url
+  end
+
   def download
     @sound= Sound.find(params[:id])
 

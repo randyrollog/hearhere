@@ -12,4 +12,6 @@ User id: <%= @sound.user_id %><br>
 Sound created at: <%= @sound.created_at %><br>
 Sound updated at: <%= @sound.updated_at %><br>
 
-<%= image_tag @sound.sound_file.url %>
+<%# image_tag @sound.sound_file.url %>
+<%= link_to "edit", edit_sound_path(@sound) %>
+<%= button_to "delete", sound_path(@sound), method: :delete %>
