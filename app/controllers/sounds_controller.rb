@@ -9,7 +9,7 @@ class SoundsController < ApplicationController
   end
 
   def new
-    @sound = Sound.new(sound_file_file_name: params[:sound_file_file_name])
+    @sound = Sound.new
   end
 
   def create
