@@ -38,6 +38,17 @@ gem 'bcrypt-ruby'
 # Use paperclip
 gem "paperclip", "~> 3.0"
 
+#For testing
+group :development, :test do 
+  gem 'rspec-rails' 
+  gem 'factory_girl_rails'
+end
+
+group :test do 
+  gem 'capybara' 
+  gem 'guard-rspec' 
+end
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
