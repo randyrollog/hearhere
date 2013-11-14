@@ -21,14 +21,22 @@ describe SoundsController do
     end
   end
 
-
   describe "GET #show" do
     it "responds to GET" do
       sound = FactoryGirl.create(:sound, 
-                                 :sound_file => File.open('/Users/christopherspears/wdi/83746__braffe2__pen-writing.wav') )
+                                 :sound_file => File.open('/Users/christopherspears/wdi/83746__braffe2__pen-writing.wav'))
       get :show, id: sound.id
       expect(response).to render_template("show")
     end
+  end
+
+  describe "POST #create" do 
+    before { @sound2 = Sound.create!(sound_name: "test",
+      sound_file: File.open('/Users/christopherspears/wdi/83746__braffe2__pen-writing.wav')) }
+    it 'creates a new sound' 
+      # post :create, sound: @sound2
+      # expect(Sound.last.sound_file).to eq(@sound2[:sound_file])
+    
   end
 
 end
