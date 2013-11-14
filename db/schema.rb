@@ -48,11 +48,11 @@ ActiveRecord::Schema.define(version: 20131113014229) do
   create_table "users", force: true do |t|
     t.string   "user_name"
     t.string   "password"
-    t.string   "password_confirmation"
     t.integer  "rating"
     t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_confirmation"
     t.string   "hashed_password"
     t.string   "salt"
   end

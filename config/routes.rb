@@ -3,8 +3,10 @@ HearHere::Application.routes.draw do
   root 'welcome#index'
   
   resources :users, :authentications
-  resources :sounds, except: [:show]
-  get 'sounds/:id' => 'sounds#download', :as => :download
+  # resources :sounds, except: [:show]
+  get 'sounds/:id/download' => 'sounds#download', :as => :download
+  resources :sounds
+  
   
   # delete "authentications/:id" => "authentications#destroy"
   
