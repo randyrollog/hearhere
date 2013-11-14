@@ -1,6 +1,16 @@
 HearHere::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # For aws
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['hearherebucket'],
+      :access_key_id => ENV['AKIAJQ6LXO7M4OOGGOPA'],
+      :secret_access_key => ENV['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']
+    }
+  }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

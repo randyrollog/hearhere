@@ -3,6 +3,13 @@ Dependencies:
 Need imagemagick for paperclip:
 brew install imagemagick
 
+Need these gems:
+# Use paperclip
+gem "paperclip", "~> 3.0"
+
+# Use AWS
+gem 'aws-sdk'
+
 11/10/13 from Chris Spears:
 
 Currently sound files are stored in the filesystem in a path like this:
