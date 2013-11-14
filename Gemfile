@@ -38,6 +38,9 @@ gem 'bcrypt-ruby'
 # Use paperclip
 gem "paperclip", "~> 3.0"
 
+# Use AWS
+gem 'aws-sdk'
+
 #For testing
 group :development, :test do 
   gem 'rspec-rails' 
