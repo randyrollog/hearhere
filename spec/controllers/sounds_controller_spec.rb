@@ -31,11 +31,10 @@ describe SoundsController do
   end
 
   describe "POST #create" do 
-    before { @sound2 = Sound.create!(sound_name: "test",
-      sound_file: File.open('/Users/christopherspears/wdi/83746__braffe2__pen-writing.wav')) }
+    let(:sound) { FactoryGirl.create(:sound, :sound_file => '/Users/christopherspears/wdi/83746__braffe2__pen-writing.wav') }
     it 'creates a new sound' 
-      # post :create, sound: @sound2
-      # expect(Sound.last.sound_file).to eq(@sound2[:sound_file])
+      post :create, sound: @sound
+      expect(Sound.last.sound_file).to eq(@sound[:sound_file])
     
   end
 
