@@ -9,6 +9,8 @@ HearHere::Application.configure do
       :access_key_id => ENV['AKIAJQ6LXO7M4OOGGOPA'],
       :secret_access_key => ENV['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']
     }
+    :url => 'hearherebucket.s3.amazonaws.com',
+    :path => '/:class/:attachment/:id_partition/:style/:filename'
   }
 
   # Code is not reloaded between requests.

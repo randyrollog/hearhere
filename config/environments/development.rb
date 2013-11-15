@@ -1,6 +1,18 @@
 HearHere::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # For aws
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['hearherebucket'],
+      :access_key_id => ENV['AKIAJQ6LXO7M4OOGGOPA'],
+      :secret_access_key => ENV['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']
+    }
+    :url => 'hearherebucket.s3.amazonaws.com',
+    :path => '/:class/:attachment/:id_partition/:style/:filename'
+  }
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
