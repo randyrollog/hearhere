@@ -38,7 +38,7 @@ class SoundsController < ApplicationController
   def download
     @sound= Sound.find(params[:id])
 
-    redirect_to @sound.download_url
+    redirect_to download_url(@sound)
   end
 
   def download_url
