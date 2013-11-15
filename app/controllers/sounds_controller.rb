@@ -44,7 +44,7 @@ class SoundsController < ApplicationController
   def download_url(sound)
     s3 = AWS::S3.new
     bucket = s3.buckets['hearherebucket']
-    object = bucket.objects[s3_key]
+    object = bucket.objects['hearherebucket.s3.amazonaws.com']
     object.url_for(:get, { 
       expires: 10.minutes,
       response_content_disposition: 'attachment;'
