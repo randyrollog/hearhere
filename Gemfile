@@ -41,7 +41,7 @@ gem "paperclip", "~> 3.0"
 # Use AWS
 gem 'aws-sdk'
 
-#For testing
+# For testing
 group :development, :test do 
   gem 'rspec-rails' 
   gem 'factory_girl_rails'
@@ -51,6 +51,9 @@ group :test do
   gem 'capybara' 
   gem 'guard-rspec' 
 end
+
+# For Heroku
+gem 'rails_12factor', group: :production
 
 # Use unicorn as the app server
 # gem 'unicorn'
