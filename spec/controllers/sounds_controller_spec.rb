@@ -30,17 +30,6 @@ describe SoundsController do
     end
   end
 
-  # describe "POST #create" do
-
-  #   it 'creates a new sound' do 
-  #     tester_sound = FactoryGirl.create(:sound,
-  #                                       :sound_name => 'test',
-  #                                       :sound_file => File.open('/Users/christopherspears/wdi/83746__braffe2__pen-writing.wav'))
-  #     post :create, sound: tester_sound
-  #     expect(Sound.last.sound_name).to eq(tester_sound[:sound_name])
-  #   end
-  # end
-
   describe "POST #create" do 
     it 'creates a new sound' do 
       tester_hash = {:sound_name => 'test',

@@ -8,7 +8,6 @@
   <%= sound.sound_file_content_type %>
   <%= sound.sound_file_file_size %>
   <%= sound.sound_file_updated_at %>
-  <!-- <%= button_to "Download", Sound.last.sound_file.url(:original, false) %> -->
   <%= button_to "Download", download_path(sound.id), :method => :get %>
   <br>
 <% end %>
