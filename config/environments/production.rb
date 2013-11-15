@@ -6,9 +6,9 @@ HearHere::Application.configure do
     :storage => :s3,
     :s3_protocol => 'http',
     :s3_credentials => {
-      :bucket => ENV['hearherebucket'],
-      :access_key_id => ENV['AKIAJQ6LXO7M4OOGGOPA'],
-      :secret_access_key => ENV['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']
+      :bucket => ENV['S3_BUCKET_NAME'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
 
