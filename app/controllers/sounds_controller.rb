@@ -41,7 +41,7 @@ class SoundsController < ApplicationController
     redirect_to download_url(@sound)
   end
 
-  def download_url
+  def download_url(sound)
     s3 = AWS::S3.new
     bucket = s3.buckets['hearherebucket']
     object = bucket.objects[s3_key]
