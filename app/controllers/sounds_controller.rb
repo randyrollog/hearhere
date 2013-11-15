@@ -38,10 +38,17 @@ class SoundsController < ApplicationController
   def download
     @sound= Sound.find(params[:id])
 
-    send_file @sound.sound_file.path,
-              :filename => @sound.sound_file_file_name,
-              :type => @sound.sound_file_content_type,
-              :disposition => 'attachment'
+    redirect_to @sound.download_url
+  end
+
+  def download_url
+    s3 = AWS::S3.new
+    bucket = s3.buckets['hearherebucket']
+    object = bucket.objects[s3_key]
+    object.url_for(:get, { 
+      expires: 10.minutes,
+      response_content_disposition: 'attachment;'
+    }).to_s
   end
 
   private
