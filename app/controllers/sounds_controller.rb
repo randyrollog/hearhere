@@ -37,8 +37,7 @@ class SoundsController < ApplicationController
 
   def download
     @sound= Sound.find(params[:id])
-    data = open(@sound.sound_file)
-    send_data data.read, :type => data.content_type, :x_sendfile => true
+    send_data @sound.sound_file_file_name, disposition: 'attachment'
     # redirect_to download_url(@sound)
   end
 
