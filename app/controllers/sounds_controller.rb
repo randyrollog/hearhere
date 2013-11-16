@@ -37,19 +37,20 @@ class SoundsController < ApplicationController
 
   def download
     @sound= Sound.find(params[:id])
-
-    redirect_to download_url(@sound)
+    data = open(@sound.sound_file)
+    send_data data.read, :type => data.content_type, :x_sendfile => true
+    # redirect_to download_url(@sound)
   end
 
-  def download_url(sound)
-    s3 = AWS::S3.new
-    bucket = s3.buckets['hearherebucket']
-    object = bucket.objects['/sounds/sound_files/000/000/005/original/83746__braffe2__pen-writing.wav']
-    object.url_for(:get, { 
-      expires: 10.minutes,
-      response_content_disposition: 'attachment;'
-    }).to_s
-  end
+  # def download_url(sound)
+  #   s3 = AWS::S3.new
+  #   bucket = s3.buckets['hearherebucket']
+  #   object = bucket.objects['/sounds/sound_files/000/000/005/original/83746__braffe2__pen-writing.wav']
+  #   object.url_for(:get, { 
+  #     expires: 10.minutes,
+  #     response_content_disposition: 'attachment;'
+  #   }).to_s
+  # end
 
   private
 
