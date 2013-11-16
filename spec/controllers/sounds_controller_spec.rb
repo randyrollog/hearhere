@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe SoundsController do
+
+  let(:valid_session) { {} }
+
   describe "GET #index" do
     it 'renders the index template' do
       get :index
@@ -32,14 +35,9 @@ describe SoundsController do
 
   describe "POST #create" do 
     it 'creates a new sound' do 
-      tester_hash = {:sound_name => 'test',
-                     :sound_file => {:content_type = nil,
-                                     :headers = nil,
-                                     :original_filename = nil,
-                                     :tempfile = nil}
-                    }
-      post :create, sound: tester_hash
-      expect(Sound.last.sound_name).to eq(tester_hash[:sound_name])
+      Sound.any_instance.stub(:save).and_return(true)
+      post :create, {:sound => { "sound_name" => "test" }}, valid_session
+      assigns(:sound).should be_a_new(Sound)
     end
   end
 
