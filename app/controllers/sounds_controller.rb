@@ -44,16 +44,6 @@ class SoundsController < ApplicationController
       :x_sendfile => true
   end
 
-  # def download_url(sound)
-  #   s3 = AWS::S3.new
-  #   bucket = s3.buckets['hearherebucket']
-  #   object = bucket.objects['/sounds/sound_files/000/000/005/original/83746__braffe2__pen-writing.wav']
-  #   object.url_for(:get, { 
-  #     expires: 10.minutes,
-  #     response_content_disposition: 'attachment;'
-  #   }).to_s
-  # end
-
   private
 
   # Use strong_parameters for attribute whitelisting
