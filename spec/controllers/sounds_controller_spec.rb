@@ -17,9 +17,12 @@ describe SoundsController do
     end
   end
 
+  # need a user because of nested resources
+
   describe "GET #new" do
     it 'renders the new template' do
-      get :new
+      user = FactoryGirl.create(:user)
+      get :new, user_id: user.id
       expect(response).to render_template("new")
     end
   end
@@ -36,6 +39,7 @@ describe SoundsController do
 
   describe "POST #create" do 
     it 'creates a new sound' do
+      user = FactoryGirl.create(:user)
       sound = FactoryGirl.create(:sound => valid_attributes)
       expect { sound.sound_name }.to eq("test")
     end
