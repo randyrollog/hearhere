@@ -14,8 +14,7 @@ class SoundsController < ApplicationController
 
   def create
     @sound = Sound.create( sound_params )
-    @sound.user = current_user
-    redirect_to :action => "show", :id => @sound.id
+    redirect_to :action => "show", :id => @sound.id, :user_id => current_user
   end
 
   def edit
