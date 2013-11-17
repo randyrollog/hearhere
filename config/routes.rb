@@ -10,6 +10,8 @@ HearHere::Application.routes.draw do
   end
 
   resources :sounds, only: [:index]
+
+ 
   
   # delete "authentications/:id" => "authentications#destroy"
   

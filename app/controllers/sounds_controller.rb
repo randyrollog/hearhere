@@ -54,7 +54,8 @@ class SoundsController < ApplicationController
       :sound_file,
       :sound_name,
       :description,
-      :location)
+      :location,
+      :user_id => :user_id)
   end
 
 end
