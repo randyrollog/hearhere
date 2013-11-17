@@ -24,7 +24,7 @@ class SoundsController < ApplicationController
   def update
     @sound = Sound.find(params[:id])
     if @sound.update(sound_params)
-      redirect_to sound_url(@sound)
+      redirect_to :action => "show", :id => @sound.id, :user_id => current_user
     else
       render 'edit'
     end
