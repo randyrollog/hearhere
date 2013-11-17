@@ -1,6 +1,9 @@
+
 <h1>Welcome User</h1>
 
-<%= session[:user_id] %>
+<div id = "username">
+  <%= session[:user_id] %>
+</div>
 
 <p>
    <%= button_to "See Profile", user_path(current_user), method: :get %>
