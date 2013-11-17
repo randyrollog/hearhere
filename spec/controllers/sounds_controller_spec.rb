@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe SoundsController do
-
   let(:valid_attributes) { { "sound_name" => "test", "sound_file" => File.new } }
   let(:valid_session) { {} }
 
@@ -35,10 +34,9 @@ describe SoundsController do
   end
 
   describe "POST #create" do 
-    it 'creates a new sound' do 
-      Sound.any_instance.stub(:save).and_return(true)
-      expect { post :create, {:sound => valid_attributes}, 
-       valid_session}.to change(Sound, :count).by(1)
+    it 'creates a new sound' do
+      sound = FactoryGirl.create(:sound => valid_attributes)
+      expect { sound.sound_name }.to eq("test")
     end
   end
 
