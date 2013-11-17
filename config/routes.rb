@@ -5,10 +5,10 @@ HearHere::Application.routes.draw do
   resources :authentications
 
   resources :users do
-    get 'sounds/:id/download' => 'sounds#download', :as => :download
     resources :sounds, except: [:index]
   end
-
+  
+  get '/sounds/:id/download' => 'sounds#download', :as => :download
   resources :sounds, only: [:index]
 
  
