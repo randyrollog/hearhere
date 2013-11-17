@@ -2,5 +2,13 @@
 <%= @user.user_name %>
 
 <p>
+   <%= button_to "Add a Sound", new_user_sound_path(@user), method: :get %>
+</p>
+
+<p>
+   <%= button_to "Show All Sounds", "/sounds", method: :get %>
+</p>
+
+<p>
   <%= button_to "Log out", "/authentications/_", method: :delete %>
 </p>

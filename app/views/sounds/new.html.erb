@@ -1,4 +1,4 @@
-<%= form_for @sound, :url => sounds_path, :html => { :multipart => true } do |form| %>
+<%= form_for [@user, @sound], :url => "/users/:user_id/sounds", :html => { :multipart => true } do |form| %>
   <%= form.text_field :sound_name, placeholder: "Sound name" %>
   <%= form.text_field :description, placeholder: "Description" %>
   <%= form.text_field :location, placeholder: "Location" %>

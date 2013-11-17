@@ -7,13 +7,13 @@ class AuthenticationsController < ApplicationController
     if current_user
       redirect_to users_url
     else
-      @user = User.new(username: params[:username])
+      @user = User.new(user_name: params[:user_name])
       render :new
     end
   end
 
  def create
-    user = User.where(username: params[:user][:username]).first
+    user = User.where(user_name: params[:user][:user_name]).first
 
     if user
         # authenticate user
@@ -22,10 +22,10 @@ class AuthenticationsController < ApplicationController
           redirect_to users_url
         else
           flash.now.alert = "Unable to sign you in. Please try again."
-          redirect_to users_new_url
+          redirect_to new_user_url
         end
     else
-      redirect_to users_new_url(username: params[:user][:username])
+      redirect_to new_user_url(user_name: params[:user][:user_name])
     end
   end
 
