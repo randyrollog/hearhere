@@ -26,9 +26,10 @@ describe SoundsController do
 
   describe "GET #show" do
     it "responds to GET" do
+      user = FactoryGirl.create(:user)
       sound = FactoryGirl.create(:sound, 
-                                 :sound_file => File.open('/Users/christopherspears/wdi/83746__braffe2__pen-writing.wav'))
-      get :show, id: sound.id
+                          :sound_file => File.open('/Users/christopherspears/wdi/83746__braffe2__pen-writing.wav'))
+      get :show, user_id: user.id, id: sound.id
       expect(response).to render_template("show")
     end
   end
