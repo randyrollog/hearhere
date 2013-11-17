@@ -1,8 +1,21 @@
+<script type="text/javascript">
+
+var user_id = <%= @user.id.to_json %>
+
+$(function() {
+  $("button#add_sound").click(function(){
+    $("#add_sound_p").load("/users/" + user_id + "/sounds/new");
+  })
+})
+
+</script>
+
 <%= session[:user_id] %>
 <%= @user.user_name %>
 
-<p>
-   <%= button_to "Add a Sound", new_user_sound_path(@user), method: :get %>
+<p id="add_sound_p">
+  <button id="add_sound">Add a Sound</button>
+   <!-- <%= button_to "Add a Sound", new_user_sound_path(@user), method: :get %> -->
 </p>
 
 <p>

@@ -14,8 +14,8 @@ class SoundsController < ApplicationController
   end
 
   def create
-    @sound = Sound.create( sound_params )
-    redirect_to :action => "show", :id => @sound.id, :user_id => current_user
+    @sound = Sound.create( sound_params ).merge(:user_id => current_user.id)
+    redirect_to :action => "show"
   end
 
   def edit
@@ -25,7 +25,7 @@ class SoundsController < ApplicationController
   def update
     @sound = Sound.find(params[:id])
     if @sound.update(sound_params)
-      redirect_to :action => "show", :id => @sound.id, :user_id => current_user
+      redirect_to :action => "show", :id => @sound.id, :user_id => current_user.id
     else
       render 'edit'
     end
@@ -56,7 +56,7 @@ class SoundsController < ApplicationController
       :sound_name,
       :description,
       :location,
-      :user_id => current_user)
+      :user_id)
   end
 
 end
