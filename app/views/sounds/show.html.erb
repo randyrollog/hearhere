@@ -1,4 +1,4 @@
-<h1>Sound Data!</h1>
+<h1>Uploaded Sound File!</h1>
 
 Name of sound: <%= @sound.sound_name %><br>
 File name: <%= @sound.sound_file_file_name %><br>
@@ -14,3 +14,6 @@ Sound updated at: <%= @sound.updated_at %><br>
 
 <%= button_to "Edit", edit_user_sound_path(current_user, params[:id]), method: :get %>
 <%= button_to "Delete", user_sound_path(current_user, params[:id]), method: :delete %>
+<p>
+   <%= button_to "Show All Sounds", "/sounds", method: :get %>
+</p>

@@ -8,7 +8,9 @@
   <%= sound.sound_file_file_name %>
   <%= sound.sound_file_content_type %>
   <%= sound.sound_file_file_size %>
-  <%= sound.sound_file_updated_at %>
+  <%= sound.sound_file_updated_at %> 
   <%= button_to "Download", download_path(sound.id), :method => :get %>
 
 <% end %>
+
+<%= button_to "Back to Profile", user_path(current_user), method: :get %>
