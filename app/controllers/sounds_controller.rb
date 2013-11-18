@@ -18,11 +18,6 @@ class SoundsController < ApplicationController
     redirect_to :action => "show", :id => @sound.id, :user_id => current_user
   end
 
-  # def create
-  #   @sound = Sound.create( sound_params ).merge(:user_id => current_user.id)
-  #   redirect_to :action => "show"
-  # end
-
   def edit
     @sound = Sound.find(params[:id])
   end
@@ -64,14 +59,5 @@ class SoundsController < ApplicationController
       :location,
       :user_id)
   end
-
-  # def sound_params
-  #   params.require(:sound).permit(
-  #     :sound_file,
-  #     :sound_name,
-  #     :description,
-  #     :location,
-  #     :user_id)
-  # end
 
 end
