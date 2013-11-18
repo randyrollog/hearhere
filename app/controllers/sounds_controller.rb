@@ -14,9 +14,14 @@ class SoundsController < ApplicationController
   end
 
   def create
-    @sound = Sound.create( sound_params ).merge(:user_id => current_user.id)
-    redirect_to :action => "show"
+    @sound = Sound.create( sound_params )
+    redirect_to :action => "show", :id => @sound.id, :user_id => current_user
   end
+
+  # def create
+  #   @sound = Sound.create( sound_params ).merge(:user_id => current_user.id)
+  #   redirect_to :action => "show"
+  # end
 
   def edit
     @sound = Sound.find(params[:id])
@@ -50,6 +55,7 @@ class SoundsController < ApplicationController
   # Use strong_parameters for attribute whitelisting
   # Be sure to update your create() and update() controller methods.
 
+  
   def sound_params
     params.require(:sound).permit(
       :sound_file,
@@ -58,5 +64,14 @@ class SoundsController < ApplicationController
       :location,
       :user_id)
   end
+
+  # def sound_params
+  #   params.require(:sound).permit(
+  #     :sound_file,
+  #     :sound_name,
+  #     :description,
+  #     :location,
+  #     :user_id)
+  # end
 
 end

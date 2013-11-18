@@ -12,8 +12,13 @@ User id: <%= @sound.user_id %><br>
 Sound created at: <%= @sound.created_at %><br>
 Sound updated at: <%= @sound.updated_at %><br>
 
-<%= button_to "Edit", edit_user_sound_path(current_user, params[:id]), method: :get %>
+
+<p id="edit_sound_p">
+  <%= button_to "Edit", edit_user_sound_path(current_user, params[:id]), method: :get %>
+</p>
+
 <%= button_to "Delete", user_sound_path(current_user, params[:id]), method: :delete %>
+
 <p>
    <%= button_to "Show All Sounds", "/sounds", method: :get %>
 </p>
