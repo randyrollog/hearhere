@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(params[:user]
-                .permit(:user_name, :password, :password_confirmation))
+                .permit(:user_name, :location, :password, :password_confirmation))
     user = User.find_by(user_name: params[:user][:user_name])
     if user.authenticate(params[:user][:password])
       session[:user_id] = user.id
