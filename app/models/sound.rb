@@ -13,5 +13,10 @@ class Sound < ActiveRecord::Base
   validates_attachment_presence :sound_file
   # maybe validate content type?
   # validates_attachement_content_type :sound_file, :content_type => ['sound/wav','sound/aiff']
-  
+
+  def self.search(search)
+    search_condition = "%" + search + "%"
+    find(:all, :conditions => ['sound_name LIKE ? OR description LIKE ?', search_condition, search_condition])
+  end
+
 end

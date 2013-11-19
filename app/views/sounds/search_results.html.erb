@@ -1,0 +1,5 @@
+<ul>
+  <% @sounds.each do |sound| %>
+<li><%= link_to sound.sound_name, user_sound_path(sound.user, sound)  %></li>
+  <% end %>
+</ul>

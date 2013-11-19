@@ -2,7 +2,6 @@
   <%= form.text_field :sound_name, placeholder: "Sound name" %>
   <%= form.text_field :description, placeholder: "Description" %>
   <%= form.text_field :location, placeholder: "Location" %>
-  <%= form.hidden_field :user_id, :value => @user.id %>
   <%= form.file_field :sound_file %>
   <%= form.submit %>
 <% end %>

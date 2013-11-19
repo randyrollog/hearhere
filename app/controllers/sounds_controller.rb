@@ -8,6 +8,16 @@ class SoundsController < ApplicationController
     @sound = Sound.find(params[:id])
   end
 
+  # Renders form
+  def search
+  end
+
+  # Displays results
+  def display_results
+    @sounds = Sound.search(params[:search])
+    render :search_results
+  end
+
   def new
     @sound = Sound.new
     @user = User.find(params[:user_id])

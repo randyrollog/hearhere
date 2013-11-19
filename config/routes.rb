@@ -11,9 +11,8 @@ HearHere::Application.routes.draw do
   get '/sounds/:id/download' => 'sounds#download', :as => :download
   resources :sounds, only: [:index]
 
- 
-  
-  # delete "authentications/:id" => "authentications#destroy"
+  get 'search' => 'sounds#search'
+  post 'search' => 'sounds#display_results'
   
   # resources :tags
 
