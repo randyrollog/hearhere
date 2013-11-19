@@ -18,6 +18,7 @@ class SoundsController < ApplicationController
     render :search_results
   end
 
+  # Give the sound a rating
   def rate
     rating = current_user.sound_ratings.new(value: params[:value], sound_id: params[:id])
     if rating.save
