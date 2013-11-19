@@ -55,6 +55,10 @@ end
 # For Heroku
 gem 'rails_12factor', group: :production
 
+# Use Active Record Reputation System
+gem 'activerecord-reputation-system'
+
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
