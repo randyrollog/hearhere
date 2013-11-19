@@ -14,6 +14,11 @@ class Sound < ActiveRecord::Base
   # maybe validate content type?
   # validates_attachement_content_type :sound_file, :content_type => ['sound/wav','sound/aiff']
 
+
+  def votes
+    read_attribute(:votes) || sound_ratings.average(:value)
+  end
+
   def self.search(search)
     search_condition = "%" + search + "%"
     find(:all, :conditions => ['sound_name LIKE ? 

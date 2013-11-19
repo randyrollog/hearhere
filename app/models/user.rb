@@ -11,6 +11,15 @@ class User < ActiveRecord::Base
     BCrypt::Engine.hash_secret(password, self.salt)
   end
 
+  def avg_votes
+    SoundRating.joins(:sound).where(sounds: {user_id: self.id}).average('value')
+  end
+
+  # Determines if a user can vote for a sound
+  def can_vote_for?(sound)
+    sound_ratings.build(value: 1, sound: sound).valid?
+  end
+
   private
 
   def hash_password
