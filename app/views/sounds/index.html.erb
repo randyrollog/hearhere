@@ -1,18 +1,33 @@
 <h1>Sounds index</h1>
 
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Sound Name</th>
+    <th>Description</th>
+    <th>Location</th>
+    <th>Rating</th>
+    <th>Author</th>
+    <th>File Name</th>
+    <th>File Type</th>
+    <th>File Size</th>
+    <th>File Updated</th>
+    <th>Download</th>
+  </tr>
 <% @sounds.each do |sound| %>
-  <%= sound.id %>
-  <%= sound.sound_name %>
-  <%= sound.description %>
-  <%= sound.location %>
-  <%= sound.rating %>
-  <%= sound.user.user_name %>
-  <%= sound.sound_file_file_name %>
-  <%= sound.sound_file_content_type %>
-  <%= sound.sound_file_file_size %>
-  <%= sound.sound_file_updated_at %> 
-  <%= button_to "Download", download_path(sound.id), :method => :get %>
-
+  <tr>
+    <td><%= sound.id %></td>
+    <td><%= sound.sound_name %></td>
+    <td><%= sound.description %></td>
+    <td><%= sound.location %></td>
+    <td><%= sound.rating %></td>
+    <td><%= sound.user.user_name %></td>
+    <td><%= sound.sound_file_file_name %></td>
+    <td><%= sound.sound_file_content_type %></td>
+    <td><%= sound.sound_file_file_size %></td>
+    <td><%= sound.sound_file_updated_at %></td> 
+    <td><%= button_to "Download", download_path(sound.id), :method => :get %></td>
+  </tr>
 <% end %>
-
+</table>
 <%= button_to "Back to Profile", user_path(current_user), method: :get %>
