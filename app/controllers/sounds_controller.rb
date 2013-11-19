@@ -22,9 +22,9 @@ class SoundsController < ApplicationController
   def rate
     rating = current_user.sound_ratings.new(value: params[:value], sound_id: params[:id])
     if rating.save
-      redirect_to :back, notice: "Thank you for voting."
+      redirect_to '/sounds', notice: "Thank you for voting."
     else
-      redirect_to :back, alert: "Unable to vote, perhaps you already did."
+      redirect_to '/sounds', alert: "Unable to vote, perhaps you already did."
     end
   end
 
