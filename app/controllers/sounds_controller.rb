@@ -18,10 +18,9 @@ class SoundsController < ApplicationController
     render :search_results
   end
 
-
-  def vote
-    vote = current_user.sound_ratings.new(value: params[:value], sound_id: params[:id])
-    if vote.save
+  def rate
+    rating = current_user.sound_ratings.new(value: params[:value], sound_id: params[:id])
+    if rating.save
       redirect_to :back, notice: "Thank you for voting."
     else
       redirect_to :back, alert: "Unable to vote, perhaps you already did."

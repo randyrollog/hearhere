@@ -2,7 +2,7 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
 	has_many :sounds
-  # has_many :tags
+  has_many :sound_ratings
 
   before_save :hash_password
 

@@ -1,5 +1,6 @@
 class Sound < ActiveRecord::Base
   belongs_to :user
+  has_many :sound_ratings
 
   # for paperclip
   has_attached_file :sound_file,
@@ -15,8 +16,8 @@ class Sound < ActiveRecord::Base
   # validates_attachement_content_type :sound_file, :content_type => ['sound/wav','sound/aiff']
 
 
-  def votes
-    read_attribute(:votes) || sound_ratings.average(:value)
+  def ratings
+    read_attribute(:ratings) || sound_ratings.average(:value)
   end
 
   def self.search(search)
