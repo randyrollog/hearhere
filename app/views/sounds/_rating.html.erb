@@ -1,9 +1,11 @@
 <script type="text/javascript">
   $(document).ready(function(){
+    // Detect click on unique button
     $("#submit_int" + <%=sound.id%>).click(function(){
+      // Grab number from associated number field
       rating = $("#number_input" + <%=sound.id%>).val();
       console.log(rating);
-      //alert($('#number_input' + self.sound_id).val());
+      $.post("/rate/" + <%=sound.id%>, rating);
   });
 });
 
