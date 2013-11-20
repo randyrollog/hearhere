@@ -10,6 +10,8 @@ HearHere::Application.routes.draw do
   
   get '/sounds/:id/download' => 'sounds#download', :as => :download
   resources :sounds, only: [:index]
+
+  # Rating routes for json and HTML
   post 'rate/:id' => 'sounds#rate', :as => 'rate_sound'
   post 'rate_json/:id' => 'sounds#rate_json', :as => 'rate_sound_json'
 
@@ -17,8 +19,6 @@ HearHere::Application.routes.draw do
   post 'search' => 'sounds#display_results'
 
   get 'tags/:tag', to: 'sounds#index', as: :tag
-  
-  # resources :tags
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

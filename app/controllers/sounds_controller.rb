@@ -42,10 +42,12 @@ class SoundsController < ApplicationController
   def rate_json
     logger.info("JSON")
     rating = current_user.sound_ratings.new(sound_id: params[:id], value: params[:rating])
-    if rating.save
+    logger.info("RATING:")
+    logger.info(rating)
+    if rating.save!
       render :status => :ok, :json => { :status => 'SUCCESS' }
     else
-      render :status => 422, :json => { :status => 'FAILED' }.to_json
+      render :status => 422, :json => { :status => 'FAILED' }
     end
   end
 

@@ -7,9 +7,9 @@
       
       // Grab number from associated number field
       rating = $("#number_input" + <%=sound.id%>).val();
-
+      console.log(rating);
       // Push data to rate method in sounds controller
-      $.post("/rate/" + <%=sound.id%>, {rating: rating},
+      $.post("/rate_json/" + <%=sound.id%>, {rating: rating},
         function(data,status){
           console.log("Data: " + data + "\nStatus: " + status);
       });
