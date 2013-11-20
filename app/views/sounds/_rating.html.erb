@@ -11,7 +11,7 @@
       // Push data to rate method in sounds controller
       $.post("/rate/" + <%=sound.id%>, {rating: rating},
         function(data,status){
-          alert("Data: " + data + "\nStatus: " + status);
+          console.log("Data: " + data + "\nStatus: " + status);
       });
     });
   });

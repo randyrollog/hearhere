@@ -11,6 +11,7 @@ HearHere::Application.routes.draw do
   get '/sounds/:id/download' => 'sounds#download', :as => :download
   resources :sounds, only: [:index]
   post 'rate/:id' => 'sounds#rate', :as => 'rate_sound'
+  post 'rate_json/:id' => 'sounds#rate_json', :as => 'rate_sound_json'
 
   get 'search' => 'sounds#search'
   post 'search' => 'sounds#display_results'
