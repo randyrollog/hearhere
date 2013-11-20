@@ -2,6 +2,12 @@ class SoundsController < ApplicationController
 
   def index
     @sounds = Sound.all
+
+    if params[:tag]
+      @sounds = Sound.tagged_with(params[:tag])
+    else
+      @sounds = Sound.all
+    end
   end
 
   def show
@@ -66,7 +72,8 @@ class SoundsController < ApplicationController
       :sound_file,
       :sound_name,
       :description,
-      :location
+      :location,
+      :tag_list
     )
   end
 

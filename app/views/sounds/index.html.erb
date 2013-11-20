@@ -1,5 +1,11 @@
 <h1>Sounds index</h1>
 
+<div id="tag_cloud">
+  <% tag_cloud Sound.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
 <% @sounds.each do |sound| %>
   <%= sound.id %>
   <%= sound.sound_name %>
@@ -12,7 +18,9 @@
   <%= sound.sound_file_file_size %>
   <%= sound.sound_file_updated_at %> 
   <%= button_to "Download", download_path(sound.id), :method => :get %>
-
+  <p>
+    Tags: <%= raw sound.tag_list.map {|t| link_to t, tag_path(t)}.join(' , ') %>
+  </p>
 <% end %>
 
 <%= button_to "Back to Profile", user_path(current_user), method: :get %>

@@ -1,6 +1,10 @@
 class Sound < ActiveRecord::Base
   belongs_to :user
 
+  
+  acts_as_taggable
+
+
   # for paperclip
   has_attached_file :sound_file,
                     :s3_domain_url => "hearherebucket.s3.amazonaws.com",
