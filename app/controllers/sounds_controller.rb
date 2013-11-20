@@ -1,7 +1,7 @@
 class SoundsController < ApplicationController
-  # respond_to :html, :json
+  respond_to :html, :json
   # responds with (@sounds)
-  
+
   def index
     @sounds = Sound.all
 
@@ -27,6 +27,7 @@ class SoundsController < ApplicationController
   end
 
   # Give the sound a rating
+  # For html
   def rate
     logger.info("HELLO WORLD!")
     rating = current_user.sound_ratings.new(sound_id: params[:id], value: params[:rating])
@@ -34,6 +35,18 @@ class SoundsController < ApplicationController
       redirect_to '/sounds', notice: "Thank you for voting."
     else
       redirect_to '/sounds', alert: "Unable to vote, perhaps you already did."
+    end
+  end
+
+  # For json
+  def rate_json
+    logger.info("HELLO WORLD!")
+    rating = current_user.sound_ratings.new(sound_id: params[:id], value: params[:rating])
+    if rating.save
+      render :status => :ok, { :status => 'SUCCESS' }.to_json
+    else
+
+      render :status => 422, { :status => 'FAILED' }.to_json
     end
   end
 
