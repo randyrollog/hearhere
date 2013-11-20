@@ -3,5 +3,10 @@
   <%= form.text_field :description, placeholder: "Description" %>
   <%= form.text_field :location, placeholder: "Location" %>
   <%= form.file_field :sound_file %>
+  <br>
+  <div class="field">
+  <%= form.label :tag_list, "Tags (separated by commas)" %><br />
+  <%= form.text_field :tag_list %>
+</div>
   <%= form.submit %>
 <% end %>

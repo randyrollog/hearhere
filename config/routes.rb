@@ -14,6 +14,8 @@ HearHere::Application.routes.draw do
 
   get 'search' => 'sounds#search'
   post 'search' => 'sounds#display_results'
+
+  get 'tags/:tag', to: 'sounds#index', as: :tag
   
   # resources :tags
 
