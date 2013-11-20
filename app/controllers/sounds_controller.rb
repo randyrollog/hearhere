@@ -29,7 +29,6 @@ class SoundsController < ApplicationController
   # Give the sound a rating
   # For html
   def rate
-    logger.info("HELLO WORLD!")
     rating = current_user.sound_ratings.new(sound_id: params[:id], value: params[:rating])
     if rating.save
       redirect_to '/sounds', notice: "Thank you for voting."
@@ -40,13 +39,11 @@ class SoundsController < ApplicationController
 
   # For json
   def rate_json
-    logger.info("HELLO WORLD!")
     rating = current_user.sound_ratings.new(sound_id: params[:id], value: params[:rating])
     if rating.save
-      render :status => :ok, { :status => 'SUCCESS' }.to_json
+      render :status => :ok, :json => { :status => 'SUCCESS' }
     else
-
-      render :status => 422, { :status => 'FAILED' }.to_json
+      render :status => 422, :json => { :status => 'FAILED' }.to_json
     end
   end
 
