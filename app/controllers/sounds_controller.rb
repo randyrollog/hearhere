@@ -1,5 +1,7 @@
 class SoundsController < ApplicationController
-
+  # respond_to :html, :json
+  # responds with (@sounds)
+  
   def index
     @sounds = Sound.all
 
@@ -26,7 +28,8 @@ class SoundsController < ApplicationController
 
   # Give the sound a rating
   def rate
-    rating = current_user.sound_ratings.new(value: params[:value], sound_id: params[:id])
+    logger.info("HELLO WORLD!")
+    rating = current_user.sound_ratings.new(sound_id: params[:id], value: params[:rating])
     if rating.save
       redirect_to '/sounds', notice: "Thank you for voting."
     else

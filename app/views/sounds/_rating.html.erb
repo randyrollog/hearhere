@@ -1,5 +1,15 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#submit_int" + <%=sound.id%>).click(function(){
+      rating = $("#number_input" + <%=sound.id%>).val();
+      console.log(rating);
+      //alert($('#number_input' + self.sound_id).val());
+  });
+});
+
+</script>
+
 <% if current_user && current_user.can_vote_for?(sound) %>
-  <%= number_field_tag 'rating', nil, in: 1...4 %>
-  <%= params[:rating] %>
-  <%= button_to "Rate", rate_sound_path(sound, value: params[:rating]), method: "post" %>
+  <input sound_id="<%=sound.id%>" id="number_input<%=sound.id%>" type="number" name="rating" min="1" max="3">
+  <button class="submit_button" id="submit_int<%=sound.id%>" type="submit">Rate</button>
 <% end %>
