@@ -1,0 +1,51 @@
+body {
+	margin: 0px;
+	width: 100%;
+}
+
+.page_container {
+	width: 960px;
+	margin: auto;
+	position: relative;
+}
+
+.top_nav {
+	width: 100%;
+	background: url(navbar3.png); 
+	height: 55px;
+	font-family: AvantGarde LT Medium;
+	font-weight: bold;
+	
+}
+
+.appended_nav {
+	background-color: #4c4c4c;
+	color: #4c4c4c;
+	width: 100%;
+	height: 30px;
+}
+
+#logocan {
+	background: url(logocans_v8.png) 0px 0px;
+	background-repeat: no-repeat; 
+	width: 160px;
+	height: 51px;
+	margin-left: 20px;
+	float: left;
+	z-index: 2;
+}
+#logocan:hover {
+	background: url(logocans_v8.png) 0px 52px;
+}
+
+.nav_content_right {
+	float: right;
+	margin-right: 20px;
+	color: white;
+	text-decoration: none;
+}
+.nav_content_right:hover {
+	float: right;
+	margin-right: 20px;
+	color: #4c4c4c;
+}
