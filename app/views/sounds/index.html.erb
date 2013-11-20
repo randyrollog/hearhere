@@ -1,6 +1,11 @@
 <h1>Sounds index</h1>
 
-<<<<<<< HEAD
+<div id="tag_cloud">
+  <% tag_cloud Sound.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
 <table border="1">
   <tr>
     <th>ID</th>
@@ -15,14 +20,15 @@
     <th>File Updated</th>
     <th>Download</th>
     <th>Rate Sound</th>
+    <th>Tags</th>
   </tr>
-<% @sounds.each do |sound| %>
+  <% @sounds.each do |sound| %>
   <tr>
     <td><%= sound.id %></td>
     <td><%= sound.sound_name %></td>
     <td><%= sound.description %></td>
     <td><%= sound.location %></td>
-    <td><%= sound.sound_rating.value %></td>
+    <td><%= sound.rating %></td>
     <td><%= sound.user.user_name %></td>
     <td><%= sound.sound_file_file_name %></td>
     <td><%= sound.sound_file_content_type %></td>
@@ -30,30 +36,8 @@
     <td><%= sound.sound_file_updated_at %></td> 
     <td><%= button_to "Download", download_path(sound.id), :method => :get %></td>
     <td><%= render :partial => 'sounds/rating', :locals => {sound: sound} %></td>
+    <td><%= raw sound.tag_list.map {|t| link_to t, tag_path(t)}.join(' , ') %></td>
   </tr>
-
-<div id="tag_cloud">
-  <% tag_cloud Sound.tag_counts, %w[s m l] do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
-</div>
-
-<% @sounds.each do |sound| %>
-  <%= sound.id %>
-  <%= sound.sound_name %>
-  <%= sound.description %>
-  <%= sound.location %>
-  <%= sound.rating %>
-  <%= sound.user.user_name %>
-  <%= sound.sound_file_file_name %>
-  <%= sound.sound_file_content_type %>
-  <%= sound.sound_file_file_size %>
-  <%= sound.sound_file_updated_at %> 
-  <%= button_to "Download", download_path(sound.id), :method => :get %>
-  <p>
-    Tags: <%= raw sound.tag_list.map {|t| link_to t, tag_path(t)}.join(' , ') %>
-  </p>
 <% end %>
-
 </table>
 <%= button_to "Back to Profile", user_path(current_user), method: :get %>
