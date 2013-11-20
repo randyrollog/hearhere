@@ -2,10 +2,26 @@ class SoundsController < ApplicationController
 
   def index
     @sounds = Sound.all
+
+    if params[:tag]
+      @sounds = Sound.tagged_with(params[:tag])
+    else
+      @sounds = Sound.all
+    end
   end
 
   def show
     @sound = Sound.find(params[:id])
+  end
+
+  # Renders form
+  def search
+  end
+
+  # Displays results
+  def display_results
+    @sounds = Sound.search(params[:search])
+    render :search_results
   end
 
   def new
@@ -14,7 +30,7 @@ class SoundsController < ApplicationController
   end
 
   def create
-    @sound = Sound.create( sound_params )
+    @sound = current_user.sounds.create( sound_params )
     redirect_to :action => "show", :id => @sound.id, :user_id => current_user
   end
 
@@ -57,7 +73,8 @@ class SoundsController < ApplicationController
       :sound_name,
       :description,
       :location,
-      :user_id)
+      :tag_list
+    )
   end
 
 end

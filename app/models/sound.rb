@@ -1,6 +1,10 @@
 class Sound < ActiveRecord::Base
   belongs_to :user
 
+  
+  acts_as_taggable
+
+
   # for paperclip
   has_attached_file :sound_file,
                     :s3_domain_url => "hearherebucket.s3.amazonaws.com",
@@ -13,5 +17,12 @@ class Sound < ActiveRecord::Base
   validates_attachment_presence :sound_file
   # maybe validate content type?
   # validates_attachement_content_type :sound_file, :content_type => ['sound/wav','sound/aiff']
-  
+
+  def self.search(search)
+    search_condition = "%" + search + "%"
+    find(:all, :conditions => ['sound_name LIKE ? 
+                  OR description LIKE ?
+                  OR location LIKE ?', search_condition, search_condition, search_condition])
+  end
+
 end
