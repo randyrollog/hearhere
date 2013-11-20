@@ -36,7 +36,7 @@
     <td><%= sound.sound_file_updated_at %></td> 
     <td><%= button_to "Download", download_path(sound.id), :method => :get %></td>
     <td><%= render :partial => 'sounds/rating', :locals => {sound: sound} %></td>
-    <td><%= raw sound.tag_list.map {|t| link_to t, tag_path(t)}.join(' , ') %></td>
+    <td><%= raw sound.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %></td>
   </tr>
 <% end %>
 </table>
