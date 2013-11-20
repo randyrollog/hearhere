@@ -1,4 +1,5 @@
 <% if current_user && current_user.can_vote_for?(sound) %>
   <%= number_field_tag 'rating', nil, in: 1...4 %>
+  <%= params[:rating] %>
   <%= button_to "Rate", rate_sound_path(sound, value: params[:rating]), method: "post" %>
 <% end %>
