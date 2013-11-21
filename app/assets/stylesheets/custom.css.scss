@@ -26,7 +26,7 @@ body {
 }
 
 #logocan {
-	background: url(logocans_v8.png) 0px 0px;
+	background-image: asset-url("logocans_v8.png", image) 0px 0px;
 	background-repeat: no-repeat; 
 	width: 160px;
 	height: 51px;
@@ -35,7 +35,7 @@ body {
 	z-index: 2;
 }
 #logocan:hover {
-	background: url(logocans_v8.png) 0px 52px;
+	background: asset-url("logocans_v8.png", image) 0px 52px;
 }
 
 .nav_content_right {
