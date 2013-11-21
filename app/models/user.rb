@@ -12,7 +12,21 @@ class User < ActiveRecord::Base
   end
 
   def avg_votes
-    SoundRating.joins(:sound).where(sounds: {user_id: self.id}).average('value')
+    # SoundRating.joins(:sound).where(sounds: {user_id: self.id}).average('value')
+    sound_ratings = SoundRating.joins(:sound).where(sounds: {user_id: self.id})
+    
+    # Return zero if sound_ratings is blank
+    if sound_ratings.blank?
+      0
+    else
+      val_array = []
+      sound_ratings.each do |s|
+        puts s.value
+        val_array.push(s.value)
+      end
+      val_array.inject(:+)/sound_ratings.count.to_f
+    end
+
   end
 
   # Determines if a user can vote for a sound
