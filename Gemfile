@@ -56,7 +56,7 @@ group :test do
 end
 
 # For Heroku
-group: :production do
+group :production do
   gem 'rails_12factor'
 end 
 
