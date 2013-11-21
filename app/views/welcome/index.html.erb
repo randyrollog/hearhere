@@ -1,3 +1,12 @@
-<h1>This is the welcome view!</h1>
+<%# image_tag "hearhere_v4.svg", class: "home_logo" %>
+<div class="page_container">
+	<h2 class="home_header">record what's around you</h2>
+	<div id="main_search_bar_div">
+		<%= text_field_tag :search, params[:search], placeholder: "search sounds", id: "main_search_bar" %>
+	</div>
+</div>
 
-<%= button_to "Log In", "/authentications/new", method: :get %>
+<canvas>
+
+</canvas>
+<%= image_tag "cancan_v6.png", class: "cancan" %>

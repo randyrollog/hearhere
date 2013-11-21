@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="navbar navbar-fixed-top top_nav">
+		<div id="logocan"></div>
+		<p class="nav_content_right"><%= link_to "Log In", "/authentications/new", method: :get, class: "nav_content_right"%></p>
+		<p class="nav_content_right">Sign Up</p>
+	</div>
+	<div class="navbar navbar-fixed-top appended_nav">
+		test
+	</div>
 
 <div id="search">
   <%= render :partial => 'sounds/search' %>
