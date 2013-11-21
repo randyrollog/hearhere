@@ -56,7 +56,9 @@ group :test do
 end
 
 # For Heroku
-gem 'rails_12factor', group: :production
+group: :production do
+  gem 'rails_12factor'
+end 
 
 
 # Use unicorn as the app server
