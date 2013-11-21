@@ -24,9 +24,13 @@ class Sound < ActiveRecord::Base
 
   def self.search(search)
     search_condition = "%" + search + "%"
-    find(:all, :conditions => ['sound_name LIKE ? 
-                  OR description LIKE ?
-                  OR location LIKE ?', search_condition, search_condition, search_condition])
+    # use search
+    search_results = where('sound_name LIKE ? 
+           OR description LIKE ?
+           OR location LIKE ?', search_condition, search_condition, search_condition)
+    # use tags
+    tag_results = tagged_with(search)
+    search_results + tag_results
   end
 
 end
