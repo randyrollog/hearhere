@@ -25,7 +25,7 @@ body {
 	height: 30px;
 }
 
-#logocan {
+/*#logocan {
 	background-image: asset-url("logocans_v8.png", image) 0px 0px;
 	background-repeat: no-repeat; 
 	width: 160px;
@@ -33,7 +33,18 @@ body {
 	margin-left: 20px;
 	float: left;
 	z-index: 2;
+}*/
+
+#logocan {
+	background: asset-url("logocans_v8.png", image) 0px 0px;
+	background-repeat: no-repeat; 
+	width: 160px;
+	height: 51px;
+	margin-left: 20px;
+	float: left;
+	z-index: 2;
 }
+
 #logocan:hover {
 	background: asset-url("logocans_v8.png", image) 0px 52px;
 }
