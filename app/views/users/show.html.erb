@@ -15,6 +15,9 @@ Location: <%= @user.location %>
 Rating: <%= @user.avg_votes %>
 
 <div id="feed">
+  <% current_user.sounds.each do |sound| %>
+  <%= sound.sound_name %>
+  <% end %>
 </div>
 
 <p id="add_sound_p">
