@@ -44,5 +44,9 @@ Rating: <%= @user.avg_votes %>
 </p>
 
 <p>
+   <%= button_to "Show All Sounds", "/sounds", method: :get %>
+</p>
+
+<p>
   <%= button_to "Log out", "/authentications/_", method: :delete %>
 </p>

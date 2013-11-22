@@ -54,6 +54,7 @@ class SoundsController < ApplicationController
   def new
     @sound = Sound.new
     @user = User.find(params[:user_id])
+    render :new, layout: false
   end
 
   def create
