@@ -6,7 +6,7 @@
     <%= form_tag :controller => 'sounds', :action => 'search', :method => 'get' do %>
 		  <%= text_field_tag :search, params[:search], placeholder: "search sounds", id: "main_search_bar" %>
       <%= submit_tag "Search", :name => nil %> 
-      <%= link_to_function "Clear", "$('#search_field').val('')" %>
+      <%= link_to_function "Clear", "$('#main_search_bar').val('')" %>
     <% end %>
   </div>
 
