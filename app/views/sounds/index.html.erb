@@ -1,4 +1,6 @@
 <h1>Sounds index</h1>
+<canvas id="wx-waveform"></canvas>
+<!-- <canvas id="wx-waveform2"></canvas> -->
 <div id="tag_cloud" class="small-block-grid-2">
   
   <% tag_cloud Sound.tag_counts, %w[s m l] do |tag, css_class| %>
@@ -10,22 +12,20 @@
 
 <div class="sounds" class="small-block-grid-2">
  <% @sounds.each do |sound| %>  
-  
   <div class="sound_tags" >
-      <p><%= link_to sound.sound_name, sound_path(sound) %></p>
-      <p>Rating:<%= sound.ratings %></p>
-      <p><%= button_to "Download", download_path(sound.id), :method => :get %></p>
-      <p><%= render :partial => 'sounds/rating', :locals => {sound: sound} %></p>
- 
+    <ul class="small-block-grid-2">
+      <li><%= link_to sound.sound_name, sound_path(sound) %></li>
+      <li>Rating:<%= sound.ratings %></li>
+      <li><%= button_to "Download", download_path(sound.id), :method => :get %></li>
+      <li><%= render :partial => 'sounds/rating', :locals => {sound: sound} %></li>
+    </ul>
   </div>
   <% end %>   
 </div>
 
 <div><%= button_to "Back to Profile", user_path(current_user), method: :get %></div>
- 
-  
-    
-    
+
+
     
     
     
