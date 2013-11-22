@@ -64,6 +64,7 @@ class SoundsController < ApplicationController
 
   def edit
     @sound = Sound.find(params[:id])
+    render :edit, layout: false
   end
 
   def update
