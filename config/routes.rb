@@ -9,7 +9,7 @@ HearHere::Application.routes.draw do
   end
   
   get '/sounds/:id/download' => 'sounds#download', :as => :download
-  resources :sounds, only: [:index]
+  resources :sounds, only: [:index, :show]
 
   # Rating routes for json and HTML
   post 'rate/:id' => 'sounds#rate', :as => 'rate_sound'
