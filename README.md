@@ -1,11 +1,11 @@
 Dependencies
 ============
 
-  *brew install imagemagick
+  brew install imagemagick
 
-  *gem "paperclip", "~> 3.0"
+  gem "paperclip", "~> 3.0"
 
-  *gem 'aws-sdk'
+  gem 'aws-sdk'
 
 
 11/10/13 from Chris Spears
