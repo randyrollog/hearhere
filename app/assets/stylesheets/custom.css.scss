@@ -6,7 +6,6 @@ body {
 .page_container {
 	width: 960px;
 	margin: auto;
-	position: relative;
 }
 
 .top_nav {
@@ -52,17 +51,15 @@ body {
 }
 
 
-
-.sound_tags {
-	width: 150px;
-	height: 150px;
-	display: inline-block;
-	background: pink;
-	
-}
-
 .single_tags {
 	display: inline-block;
 	background: gray;
 
+}
+
+li {
+	list-style: none;
+	list-style-position:inside;
+	margin:0;
+  padding:0;
 }

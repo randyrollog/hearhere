@@ -1,5 +1,4 @@
 <%# image_tag "hearhere_v4.svg", class: "home_logo" %>
-<div class="page_container">
 	<h2 class="home_header">record what's around you</h2>
  
 	<div id="main_search_bar_div">
@@ -9,10 +8,5 @@
       <%= link_to_function "Clear", "$('#main_search_bar').val('')" %>
     <% end %>
   </div>
-
-</div>
-
-<canvas>
-
-</canvas>
+<canvas id="canvas"></canvas>
 <%= image_tag "cancan_v6.png", class: "cancan" %>

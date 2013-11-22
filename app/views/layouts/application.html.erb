@@ -3,7 +3,6 @@
 <head>
   <title>HearHere</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <script src="http://hoch.github.com/WAAX/build/WAAX.min.js"></script>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -17,12 +16,12 @@
 	<div class="navbar navbar-fixed-top appended_nav">
 		test
 	</div>
-
-<div id="search">
-  <%= render :partial => 'sounds/search' %>
+<div class="page_container">
+	<div id="search">
+	  <%= render :partial => 'sounds/search' %>
+	</div>
+	<%= yield %>
 </div>
-
-<%= yield %>
 
 </body>
 </html>
