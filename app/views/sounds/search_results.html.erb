@@ -1,5 +1,9 @@
-<ul>
+<% if @sounds.empty? %>
+  <h3>No sounds found!</h3>
+<% else %>
   <% @sounds.each do |sound| %>
-<li><%= sound.sound_name%> <%= sound.description%> <%= sound.location%></li>
+    <ul>
+      <li><%= sound.sound_name%> <%= sound.description%> <%= sound.location%></li>
+    </ul>
   <% end %>
-</ul>
+<% end %>
