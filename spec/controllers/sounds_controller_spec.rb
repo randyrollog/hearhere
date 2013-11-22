@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe SoundsController do
-  let(:valid_attributes) { { "sound_name" => "test", "sound_file" => File.new } }
+  let(:valid_attributes) { { "sound_name" => "test", 
+                             "sound_file" => File.new("/Users/christopherspears/wdi/HearHere/spec/controllers/test.txt", "r") } }
   let(:valid_session) { {} }
 
   describe "GET #index" do
@@ -40,7 +41,7 @@ describe SoundsController do
   describe "POST #create" do 
     it 'creates a new sound' do
       user = FactoryGirl.create(:user)
-      sound = FactoryGirl.create(:sound => valid_attributes)
+      sound = FactoryGirl.create(:sound, valid_attributes)
       expect { sound.sound_name }.to eq("test")
     end
   end
