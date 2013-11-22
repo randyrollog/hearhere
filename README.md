@@ -1,17 +1,15 @@
-Dependencies:
+Dependencies
+============
 
-Need imagemagick for paperclip:
-brew install imagemagick
+  *brew install imagemagick
 
-Need these gems:
-# Use paperclip
-gem "paperclip", "~> 3.0"
+  *gem "paperclip", "~> 3.0"
 
-# Use AWS
-gem 'aws-sdk'
+  *gem 'aws-sdk'
 
 
-11/10/13 from Chris Spears:
+11/10/13 from Chris Spears
+==========================
 
 Currently sound files are stored in the filesystem in a path like this:
 /Users/christopherspears/wdi/HearHere/public/system/sounds/sound_files/000/000/004/original/83746__braffe2__pen-writing.wav
