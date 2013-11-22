@@ -19,7 +19,7 @@
 	</div>
 
 <div id="search">
-  <%= render :partial => 'sounds/search' %>
+  <%= render :partial => 'sounds/search' unless @disable_nav %>
 </div>
 
 <%= yield %>
