@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe SoundsController do
+  test_files_path = Rails.root.join('spec', 'controllers', 'test_files', 'test.txt')
   let(:valid_attributes) { { "sound_name" => "test", 
-                             "sound_file" => File.new("/Users/christopherspears/wdi/HearHere/spec/controllers/test.txt", "r") } }
+                             "sound_file" => File.new(test_files_path, "r") } }
   let(:valid_session) { {} }
 
   describe "GET #index" do
@@ -28,15 +29,15 @@ describe SoundsController do
     end
   end
 
-  # describe "GET #show" do
-  #   it "responds to GET" do
-  #     user = FactoryGirl.create(:user)
-  #     sound = FactoryGirl.create(:sound, 
-  #                         :sound_file => File.open('/Users/christopherspears/wdi/83746__braffe2__pen-writing.wav'))
-  #     get :show, user_id: user.id, id: sound.id
-  #     expect(response).to render_template("show")
-  #   end
-  # end
+  describe "GET #show" do
+    it "responds to GET" do
+      user = FactoryGirl.create(:user)
+      sound = FactoryGirl.create(:sound, 
+                          :sound_file => File.open('/Users/christopherspears/wdi/83746__braffe2__pen-writing.wav'))
+      get :show, user_id: user.id, id: sound.id
+      expect(response).to render_template("show")
+    end
+  end
 
   describe "POST #create" do 
     it 'creates a new sound' do
