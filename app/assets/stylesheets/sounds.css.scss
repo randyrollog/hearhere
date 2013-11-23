@@ -11,13 +11,21 @@
 }
 
 .sound_tags {
-	width: 85px;
-	height: 85px;
-	display: inline-block;
-	background: darkseagreen;
+	width: 90px;
+	height: 90px;
+	float: left;
+	background: rgba(darkseagreen, .9);
 	text-align: center;
+	border-left: 1px solid white;
+	line-height: 20px;
+
 }
 
+ul {
+	vertical-align: top;
+	list-style: none;
+	padding-left:0;
+}
 
 #wx-waveform {
 	width: 100%;

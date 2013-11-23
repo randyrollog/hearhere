@@ -4,7 +4,6 @@ class SoundsController < ApplicationController
 
   def index
     @sounds = Sound.all
-
     if params[:tag]
       @sounds = Sound.tagged_with(params[:tag])
     else
@@ -87,6 +86,15 @@ class SoundsController < ApplicationController
       :filename => @sound.sound_file_file_name, 
       :type => @sound.sound_file_content_type,
       :disposition => 'attachment', 
+      :x_sendfile => true
+  end
+
+  def preview
+    @sound= Sound.find(params[:id])
+    send_file Paperclip.io_adapters.for(@sound.sound_file).path,
+      :filename => @sound.sound_file_file_name, 
+      :type => @sound.sound_file_content_type,
+      :disposition => 'inline', 
       :x_sendfile => true
   end
 
