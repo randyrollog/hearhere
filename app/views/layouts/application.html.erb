@@ -8,8 +8,11 @@
 </head>
 <body>
 	<div class="navbar navbar-fixed-top top_nav" href="/">
-		<div id="logocan" > </div>
-		
+		<div id="logocan"></div>
+		<div id="search">
+			<!-- if disable_nav is true, it won't render -->
+		  <%= render 'sounds/search' %>
+		</div>
 		<p class="nav_content_right"><%= link_to "Log In", "/authentications/new", method: :get, class: "nav_content_right"%></p>
 		<p class="nav_content_right">Sign Up</p>
 	</div>
@@ -17,9 +20,7 @@
 		test
 	</div>
 
-<div id="search">
-  <%= render :partial => 'sounds/search' unless @disable_nav %>
-</div>
+
 
 	<%= yield %>
 
