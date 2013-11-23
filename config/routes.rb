@@ -9,6 +9,7 @@ HearHere::Application.routes.draw do
   end
   
   get '/sounds/:id/download' => 'sounds#download', :as => :download
+  get '/sounds/:id/preview' => 'sounds#preview', :as => :preview
   resources :sounds, only: [:index, :show]
 
   # Rating routes for json and HTML

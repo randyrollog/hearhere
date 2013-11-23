@@ -17,26 +17,13 @@
       <li><%= link_to sound.sound_name, sound_path(sound) %></li>
       <li>Rating:<%= sound.ratings %></li>
       <li><%= button_to "Download", download_path(sound.id), :method => :get %></li>
+      <!-- <li><%# button_to "Preview", preview_path(sound.id), :method => :get %></li> -->
+      <li><%= audio_tag preview_path(sound.id), controls: true %></li> 
       <li><%= render :partial => 'sounds/rating', :locals => {sound: sound} %></li>
     </ul>
   </div>
   <% end %>   
 </div>
-
+<br>
 <div><%= button_to "Back to Profile", user_path(current_user), method: :get %></div>
 
-
-    
-    
-    
-    
-    
-    
-     
-    
-    
-    
-    
-  
-  
-  
