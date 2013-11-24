@@ -8,48 +8,49 @@
   })
 
 </script>
+<div class="whole_page_container">
+  <div class="page_container">
+  <%= @user.user_name %>
+  Location: <%= @user.location %>
+  <br />
+  Rating: <%= @user.avg_votes %>
 
-<div class="page_container">
-<h3> <%= @user.user_name %> </h3>
-Location: <%= @user.location %>
-<br />
-Rating: <%= @user.avg_votes %>
+  <div id="feed">
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Sound Name</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th>Rating</th>
+        <th>Tags</th>
+        <th>Edit</th>
+      </tr>
+      <% current_user.sounds.each do |sound| %>
+      <tr>
+        <td><%= sound.id %></td>
+        <td><%= sound.sound_name %></td>
+        <td><%= sound.description %></td>
+        <td><%= sound.location %></td>
+        <td><%= sound.ratings %></td>
+        <td><%= raw sound.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %></td>
+        <td><%= button_to "Edit", user_sound_path(current_user, sound.id), method: :get %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
 
-<div id="feed">
-  <table border="1">
-    <tr>
-      <th>ID</th>
-      <th>Sound Name</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Rating</th>
-      <th>Tags</th>
-      <th>Edit</th>
-    </tr>
-    <% current_user.sounds.each do |sound| %>
-    <tr>
-      <td><%= sound.id %></td>
-      <td><%= sound.sound_name %></td>
-      <td><%= sound.description %></td>
-      <td><%= sound.location %></td>
-      <td><%= sound.ratings %></td>
-      <td><%= raw sound.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %></td>
-      <td><%= button_to "Edit", user_sound_path(current_user, sound.id), method: :get %></td>
-    </tr>
-    <% end %>
-  </table>
-</div>
+  <p id="add_sound_p">
+    <!-- Placeholder for controls to add sound. -->
+  </p>
 
-<p id="add_sound_p">
-  <!-- Placeholder for controls to add sound. -->
-</p>
+  <p>
+     <%= button_to "Show All Sounds", "/sounds", method: :get %>
+  </p>
 
-<p>
-   <%= button_to "Show All Sounds", "/sounds", method: :get %>
-</p>
+  <p>
+    <%= button_to "Log out", "/authentications/_", method: :delete %>
+  </p>
 
-<p>
-  <%= button_to "Log out", "/authentications/_", method: :delete %>
-</p>
-
+  </div>
 </div>

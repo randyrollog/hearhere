@@ -1,29 +1,23 @@
 @font-face {
     font-family: Roboto;
-    src: url(RobotoCondensed-Regular.ttf);
-    font-weight:400;
-
+    src: url("/assets/RobotoCondensed-Regular.ttf") format("truetype");
+    font-weight: normal;
+	  font-style: normal;
 }
 
 body {
 	margin: 0px;
 	width: 100%;
-	font-family: RobotoCondensed-Regular;
+	font-family: Roboto;
 
-}
-
-.home_header {
-	text-align: center;
-	font-family: AvantGarde LT Medium;
-	font-size: 40px;
-	font-weight: bolder;
-	color: #7db48c;
 }
 
 #search_nav {
 	width: 100%;
 	overflow: hidden;
 	border-bottom: 1px solid #878787;
+	background-color: white;
+	height: 20px;
 }
 
 #search_container {
@@ -67,7 +61,7 @@ body {
 #top_nav {
 	width: 943px;
 	margin: 0 auto;
-	font-family: RobotoCondensed-Regular;
+	font-family: Roboto;
 	overflow: hidden;
 	border-bottom: 1px solid white;
 }
