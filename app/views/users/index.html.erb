@@ -7,4 +7,5 @@
 
 <p>
    <%= button_to "See Profile", user_path(current_user), method: :get %>
+   <%= button_to "Logout", authentication_path(current_user), method: :delete %>
 </p>

@@ -1,9 +1,9 @@
 <% if action_name != 'new' && action_name != 'edit' %>
 
   <%= form_tag :controller => 'sounds', :action => 'search', :method => 'get' do %>
-    <%= text_field_tag :search, params[:search], :id => 'search_field' %>
-    <%= submit_tag "Search", :name => nil %> 
-    <%= link_to_function "Clear", "$('#search_field').val('')" %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Sounds", :id => 'search_field' %>
+    <%# submit_tag "", class: "search_btn" %> 
+    <%# link_to_function "Clear", "$('#search_field').val('')", id: "clear_field" %>
   <% end %> 
 
 <% end %> 

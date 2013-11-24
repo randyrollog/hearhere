@@ -1,58 +1,188 @@
+@font-face {
+    font-family: Roboto;
+    src: url(RobotoCondensed-Regular.ttf);
+    font-weight:400;
+
+}
+
 body {
 	margin: 0px;
 	width: 100%;
+	font-family: RobotoCondensed-Regular;
+
+}
+
+.home_header {
+	text-align: center;
+	font-family: AvantGarde LT Medium;
+	font-size: 40px;
+	font-weight: bolder;
+	color: #7db48c;
+}
+
+#search_nav {
+	width: 100%;
+	overflow: hidden;
+	border-bottom: 1px solid #878787;
+}
+
+#search_container {
+	width: 943px;
+	margin: 0 auto;
+}
+
+#search_field {
+	width: 943px;
+	height: 25px;
+	font-size: 14px;
+	color: #4c4c4c;
+	padding: 10px;
+	margin-top: 0px;
+	margin: 0 auto;
+	border: none;
+
+}
+#search_field:focus {
+	outline: none;
+}
+
+#clear_field {
+	text-decoration: none;
+	text-indent: -99999px;
+	display: block;
 }
 
 .page_container {
-	width: 960px;
+	width: 943px;
 	margin: auto;
 }
 
-.top_nav {
+.navbar-fixed-top {
 	width: 100%;
-	background-image: asset-url("navbar3.png", image); 
-	height: 52px;
-	font-family: AvantGarde LT Medium;
-	font-weight: bold;
-	
+	height: 49px;
+	background-color: #7DB48C;
+	border-bottom: 1px solid white;
+}
+
+#top_nav {
+	width: 943px;
+	margin: 0 auto;
+	font-family: RobotoCondensed-Regular;
+	overflow: hidden;
+	border-bottom: 1px solid white;
 }
 
 .appended_nav {
-	background-color: #4c4c4c;
-	color: #4c4c4c;
+	background-color: #878787;
 	width: 100%;
-	height: 30px;
+	height: 25px;
 }
 
 #logocan {
-	background: asset-url("logocans_v8.png", image) 0px 0px;
-	background-repeat: no-repeat; 
-	width: 160px;
-	height: 51px;
-	margin-left: 20px;
-	float: left;
-	z-index: 2;
+	background: asset-url("logocan_v13.png", image);
+	background-position:  0px 0px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 96px;
+	height: 49px;
+	transition:	.2s;
+}
+#logocan:hover {
+	background: asset-url("logocan_v13.png", image) 0px 48px;
 }
 
-#logocan:hover {
-	background: asset-url("logocans_v8.png", image) 0px 52px;
+.nav_contents {
+	float: left;
+	text-decoration: none;
+	color: white;
 }
 
 .nav_content_right {
 	float: right;
-	margin-right: 20px;
+	margin-top: 12px;
+	margin-left: 20px;
 	color: white;
 	text-decoration: none;
+	font-size: 15px;
+	opacity: .8;
 }
 .nav_content_right:hover {
-	float: right;
-	margin-right: 20px;
-	color: #4c4c4c;
+	opacity: 1;
+	text-shadow: -1px 1px 7px #fff;
 }
 
+#nav_icon {
+	height: 22px;
+	vertical-align: middle;
+	opacity: 1;
+}
+
+#nav_upload {
+	height: 19px;
+	vertical-align: middle;
+	opacity: 1;
+}
+
+.key_icon {
+	padding-top: 20px;
+	width: 90px;
+	margin: 0 auto;
+}
+
+.whole_page_container {
+	min-height: 650px;
+	width: 100%;
+	background-color: #7DB48C;
+}
+
+h1 {
+	margin: 0;
+	text-align: center;
+	color: white;
+	font-size: 70px;
+}
+
+#super-container {
+	margin: 0 auto;
+}
+
+.auth_form {
+	padding: 10px;
+	width: 380px;
+	margin: 0 auto;
+	font-size: 20px;
+}
+
+.auth_btn {
+	padding: 10px;
+	background-color: #878787;
+	text-decoration: none;
+	border-radius: 5px;
+	width: 190px;
+	font-weight: bold;
+	color: white;
+	font-size: 20px;
+	margin-left: 213px;
+}
 
 .single_tags {
 	display: inline-block;
 	background: gray;
+
+}
+
+.cancan {
+	position: fixed;
+	bottom: -4px;
+	right: 0;
+}
+
+#fun_canvas {
+	width: 100%;
+	height: 95px;
+	background-color: #4c4c4c;
+	position: fixed;
+	left: 0;
+	bottom: 0
 
 }

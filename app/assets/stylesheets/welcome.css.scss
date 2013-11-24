@@ -1,43 +1,60 @@
-.home_logo {
-	width: auto;
-	height: 26%;
-	margin-left: 20px;
-	position: fixed;
-	top: 100px;
-	left: 15px;
-	opacity: .85;
+#welcome_div {
+	width: 100%;
+	min-height: 350px;
+	margin: 0;
+	background-color: #7DB48C;
 }
 
-.home_header {
-	text-align: center;
-	font-family: AvantGarde LT Medium;
-	font-size: 40px;
-	font-weight: bolder;
-	color: #7db48c;
+.header_text {
+	width: 943px;
+	margin: 0 auto;
+	color: white;
+	font-family: Roboto-Thin;
+	font-size: 63px;
+	margin-bottom: -20px;
+}
+
+.text1 {
+	padding-top: 60px;
+}
+
+#world {
+	color: #ecb842;
 }
 
 #main_search_bar_div {
-	margin: 45px auto;
+	width: 100%;
 	text-align: center;
+	background-image: asset-url("green_gobbler.png");
+	position: relative;
 }
 
 #main_search_bar {
-	width: 65%;
-	height: 45px;
+	width: 943px;
+	height: 52px;
+	margin: 25px auto;
 	font-size: 25px;
-	border: 4px solid #7db48c;
+	border: 1px solid #7DB48C;
 	color: #4c4c4c;
-	border-top-left-radius: 15px;
-	border-bottom-right-radius: 15px;
 	padding-left: 10px;
+	min-width: 380px;
+}
+#main_search_bar:focus {
+	outline: none;
 }
 
-#canvas {
-	width: 100%;
-	background: #4c4c4c;
-	height: 200px;
+#down_arrow {
 	position: absolute;
-	bottom: 0;
+	width: 80px;
+	margin-left: 12%;
+	margin-top: -30px;
+}
+
+#recent_banner {
+	width: 130px;
+	position: absolute;
+	left: 0;
+	top: 530px;
 }
 
 .cancan {

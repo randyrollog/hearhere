@@ -1,7 +1,5 @@
 class WelcomeController < ApplicationController
-  
-  def index
+	def index
     @disable_nav = true
   end
-
 end

@@ -9,6 +9,7 @@
 
 </script>
 
+<div class="page_container">
 <h3> <%= @user.user_name %> </h3>
 Location: <%= @user.location %>
 <br />
@@ -50,3 +51,5 @@ Rating: <%= @user.avg_votes %>
 <p>
   <%= button_to "Log out", "/authentications/_", method: :delete %>
 </p>
+
+</div>

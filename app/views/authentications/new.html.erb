@@ -1,36 +1,13 @@
-<h1>Please login</h1>
-
-<div id="super-container">
-
-<%= form_for @user, {url:"/authentications", method:"post"} do |u| %>
-
-  <div id="controls">
-    <form class="form-horizontal" role="form">
-      <div id="text-field-container">
-        <div class="form-group">
-          <div class="col-lg-10">
-            <p>
-              <%= u.text_field :user_name, placeholder: 'username' %>
-            </p>
-          </div>
-        </div>
+<div class="whole_page_container">
+  <div class="page_container">
+    <div class="key_icon"><%= image_tag "keys.svg", class: "key_icon" %></div>
+    <h1>Login!</h1>
+      <div id="super-container">
+      <%= form_for @user, {url:"/authentications", method:"post"} do |u| %>
+        <p class="auth_form"><%= u.text_field :user_name, placeholder: 'Username', class: "auth_form" %></p>
+        <p class="auth_form"><%= u.password_field :password, placeholder: 'Password', class: "auth_form" %></p>
+        <p class="auth_form"><%= u.submit "Log In", class: "auth_btn" %></p>
+      <% end %>
       </div>
-      <div id="text-field-container">
-        <div class="form-group">
-          <div class="col-lg-10">
-            <p>
-              <%= u.text_field :password, placeholder: 'password' %>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-lg-offset-2 col-lg-10">
-          <p>
-            <%= u.submit "Log In" %>
-          </p>
-        </div>
-      </div>
-  </form>
-  <div>
-<% end %>
+  </div>
+</div>

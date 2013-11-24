@@ -1,12 +1,35 @@
-<%# image_tag "hearhere_v4.svg", class: "home_logo" %>
-	<h2 class="home_header">record what's around you</h2>
- 
-	<div id="main_search_bar_div">
-    <%= form_tag :controller => 'sounds', :action => 'search', :method => 'get' do %>
-		  <%= text_field_tag :search, params[:search], placeholder: "search sounds", id: "main_search_bar" %>
-      <%= submit_tag "Search", :name => nil %> 
-      <%= link_to_function "Clear", "$('#main_search_bar').val('')" %>
-    <% end %>
-  </div>
-<canvas id="canvas"></canvas>
-<%= image_tag "cancan_v6.png", class: "cancan" %>
+<section id="welcome_div">
+	<div class="header_text text1">Build a Collection of Audio.</div>
+	<div class="header_text">& Share it with the <strong id="world">World.</strong></div>
+	<!-- <canvas id="canvas"></canvas>
+	<%# image_tag "cancan_v6.png", class: "cancan" %>
+	 -->
+</section>
+ <section id="main_search_bar_div">
+ 	<div id="down_arrow"><%= image_tag "downarrow.svg", id: "down_arrow" %></div>
+  <%= form_tag :controller => 'sounds', :action => 'search', :method => 'get' do %>
+	  <%= text_field_tag :search, params[:search], placeholder: "Search Sounds", id: "main_search_bar", autofocus: true %>
+    <%# submit_tag "Search", :name => nil %> 
+    <%# link_to_function "Clear", "$('#main_search_bar').val('')", id: "clear_field" %>
+  <% end %>
+</section>
+
+<%= image_tag "recent_banner.svg", id: "recent_banner" %>
+
+<script>
+(function () {
+
+	var arrow = $('#down_arrow');
+
+	$('#down_arrow').hide();
+	$( "#welcome_div" ).mouseenter(function() {
+	  $('#down_arrow').fadeIn(300);
+	});
+   function runIt() {
+       arrow.animate({top:'+=20'}, 800);
+       arrow.animate({top:'-=20'}, 800, runIt);
+   }
+   runIt();
+
+}());
+</script>
