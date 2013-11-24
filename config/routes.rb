@@ -11,6 +11,7 @@ HearHere::Application.routes.draw do
   get '/sounds/:id/download' => 'sounds#download', :as => :download
   get '/sounds/:id/preview' => 'sounds#preview', :as => :preview
   resources :sounds, only: [:index, :show]
+  match '/signout', to: 'authentications#destroy',     via: 'delete'
 
   # Rating routes for json and HTML
   post 'rate/:id' => 'sounds#rate', :as => 'rate_sound'
