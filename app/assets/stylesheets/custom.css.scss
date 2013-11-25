@@ -166,8 +166,12 @@ h1 {
 
 .single_tags {
 	display: inline-block;
-	background: gray;
-
+	background: #ecb842;
+	text-decoration: underline;
+}
+.single_tags:hover {
+	color: gray;
+	text-decoration: none;
 }
 
 .user_profile_page {

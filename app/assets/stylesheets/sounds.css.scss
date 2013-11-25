@@ -3,16 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
 .sounds_container {
 	margin-top: 50px;
 }
 
-#tag_cloud {
-  width: 400px;
-  line-height: 1.6em;
-  .s { font-size: 0.8em; }
-  .m { font-size: 1.2em; }
-  .l { font-size: 1.8em; }
+#pad_container {
+	margin-top: 50px;
+	border: 1px solid antiquewhite;
 }
 
 .sound_tags {
@@ -51,6 +49,29 @@ ul {
 	position: fixed;
 	right: 0;
 	top: 161px;
+}
+
+#tag_cloud {
+  width: 186px;
+  height: 120px;
+  line-height: 1.6em;
+  .s { font-size: 10px; }
+  .m { font-size: 15px; }
+  .l { font-size: 20px; }
+  position: fixed;
+	right: 0;
+	top: 461px;
+	color: #ecb842;
+	background: #7DB48C;
+}
+
+.tags_class {
+	color: white;
+	overflow: hidden;
+}
+.tags_class:hover {
+	color: gray;
+	text-decoration: none;
 }
 
 .sound_grid_name {
