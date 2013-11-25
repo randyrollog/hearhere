@@ -15,39 +15,63 @@
     <article>Your Rating: <%= @user.avg_votes %></article>
     <br>
     <article id="feed">
-      <table class="feed_table">
-        Your Recent Activity:
-        <br>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Location</th>
-        <th>Rating</th>
-        <th>Tags</th>
-        <th>Edit</th>
-          <tr>
-          <% current_user.sounds.each do |sound| %>
-            <td class="first_td"><%= sound.sound_name %></td>
-            <td class="feed_table_data"><%= sound.description %></td>
-            <td class="feed_table_data"><%= sound.location %></td>
-            <td class="feed_table_data"><%= sound.ratings %></td>
-            <td class="feed_table_data"><%= raw sound.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %></td>
-            <td class="feed_table_data"><%= button_to "Edit", user_sound_path(current_user, sound.id), method: :get %></td>
+      <% current_user.sounds.each do |sound| %>
+      <h2>Recent Activity</h2>
+        <div class="feed_table_wrapper">
+          <div class="user_sound_tags">
+              <ul>
+                <li class="sound_grid_name"><%= sound.sound_name %></li>
+                <li>
+                  <a class="playback" href="#">
+                    <%= image_tag "playbutton.svg", class: "user_play_btn" %>
+                  </a>
+                  <%= audio_tag preview_path(current_user.sounds), id: "user_preview_btn" %>
+                </li>
+              </ul>
+          </div>
+        </div>
+        <div class="feed_table_wrapper">
+          <table class="feed_table">
+            <tr class="user_th">
+              <th>Description</th>
+              <th>Location</th>
+              <th>Rating</th>
+              <th>Tags</th>
+              <th>Edit</th>
+            </tr>
+            <tr>
+              <td class="feed_table_data"><%= sound.description %></td>
+              <td class="feed_table_data"><%= sound.location %></td>
+              <td class="feed_table_data"><%= sound.ratings %></td>
+              <td class="feed_table_data"><%= raw sound.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %></td>
+              <td class="feed_table_data"><%= button_to "Edit", user_sound_path(current_user, sound.id), method: :get %></td>
+            </tr>
+          </table>
+            </div>
           <% end %>
-          </tr>
-        
-      </table>
-      <br>
-      <br>
+          <br>
+          <br> 
+          <br>
       <footer class="user_footer">
-         <%= button_to "View All Sounds", "/sounds", method: :get %>
+         <%# button_to "View All Sounds", "/sounds", method: :get %>
       </footer>
     </article>
-
+    <div class="upload_sound_header">Upload Sounds
+      <%= image_tag "uploadist.svg", class: "uploadist" %>
+    </div>
     <p id="add_sound_p">
       <!-- Placeholder for controls to add sound. -->
     </p>
-
-    
-
   </div>
 </div>
+
+<script>
+  var cloud = $('.upload_sound_header');
+  var sound_form = $('#add_sound_p');
+
+  sound_form.hide();
+  cloud.click(function() {
+    sound_form.fadeIn(300);
+    cloud.fadeOut(200);
+  });
+</script>

@@ -9,7 +9,7 @@ body {
 	margin: 0px;
 	width: 100%;
 	font-family: Roboto;
-
+	color: white;
 }
 
 #search_nav {
@@ -26,19 +26,28 @@ body {
 }
 
 #search_field {
-	width: 943px;
+	width: 850px;
 	height: 20px;
 	font-size: 18px;
 	font-weight: bold;
 	color: #4c4c4c;
 	padding: 10px;
-	margin-top: 0px;
-	margin: 0 auto;
 	border: none;
-
+	display: inline-block;
 }
 #search_field:focus {
 	outline: none;
+}
+
+.search_icon {
+	width: 30px;
+	padding-top: 5px;
+	opacity: .5;
+	display: inline-block;
+}
+
+.icon_field {
+	float: left;
 }
 
 #clear_field {
@@ -178,20 +187,29 @@ h1 {
 }
 
 #feed {
-	width: 575px;
+	width: 700px;
 	position: absolute;
 	left: 0;
 	// border: 1px solid white;
 }
 
-th{
-	border-bottom: 1px solid white;
+.feed_table_wrapper {
+	display: inline-block;
+	vertical-align: top;
+
 }
 
 .feed_table {
 	margin: 0;
-	width: 575px;
-	border: 1px solid white;
+	width: 500px;
+	height: 90px;
+	border: 2px solid white;
+}
+
+th.user_th {
+	height: 20px;
+	border: 2px solid white;
+	overflow: hidden;
 }
 
 .first_td {
@@ -201,8 +219,33 @@ th{
 .feed_table_data {
 	margin: 0;
 	padding: 0;
-	border-left: 1px solid white;
 	text-align: center;
+}
+
+.user_sound_tags {
+	width: 86px;
+	height: 86px;
+	float: left;
+	background: rgba(125, 180, 140, 0.9);
+	border: 2px solid white;
+	line-height: 20px;
+	margin-right: 5px;
+	position: relative;
+}
+.user_sound_tags:hover {
+	background: #ecb842;
+}
+
+.user_play_btn {
+	width: 30px;
+	position: absolute;
+	top: 42px;
+	left: 29px;
+	opacity: .8;
+	transition: .2s;
+}
+.user_play_btn:hover {
+	opacity: 1;
 }
 
 #add_sound_p {
@@ -217,6 +260,31 @@ th{
 	position: absolute;
 	bottom: 0;
 	left: 0;
+}
+
+.upload_sound_header {
+	position: absolute;
+	top: 160px;
+	right: 30px;
+	width: 150px;
+	font-size: 20px;
+	text-align: center;
+	opacity: .7;
+	transition: .3s;
+}
+.upload_sound_header:hover {
+	opacity: 1;
+}
+
+.uploadist {
+	position: absolute;
+	top: 20px;
+	right: 0px;
+	width: 150px;
+}
+
+#upload_title {
+	text-align: center;	
 }
 
 .new_sound_form {

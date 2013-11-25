@@ -26,20 +26,11 @@
 <script>
 (function () {
 
-	$(window).bind('scroll',function(e){
-	  parallaxScroll();
-	});
-		 
-	function parallaxScroll(){
-    var scrolled = $(window).scrollTop();
-    $('#main_search_bar_div').css((0-(scrolled*.50))+'px');
-  };
-
 	var arrow = $('#down_arrow');
 
-	$('#down_arrow').hide();
+	arrow.hide();
 	$( "#welcome_div" ).mouseenter(function() {
-	  $('#down_arrow').fadeIn(300);
+	  arrow.fadeIn(300);
 	});
    function runIt() {
        arrow.animate({top:'+=20'}, 800);
