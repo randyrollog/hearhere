@@ -14,5 +14,9 @@ class ApplicationController < ActionController::Base
   def authenticate_user
     redirect_to authentications_url unless current_user
   end
+  
+  def show
+    @user = User.find(params[:id])
+  end
 
 end

@@ -19,7 +19,7 @@ class AuthenticationsController < ApplicationController
         # authenticate user
         if user.authenticate(params[:user][:password])
           session[:user_id] = user.id
-          redirect_to user_url(user.id)
+          redirect_to user
         else
           flash.now.alert = "Unable to sign you in. Please try again."
           redirect_to new_user_url

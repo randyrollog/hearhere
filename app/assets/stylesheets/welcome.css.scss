@@ -3,6 +3,7 @@
 	min-height: 350px;
 	margin: 0;
 	background-color: #7DB48C;
+	position: relative;
 }
 
 .header_text {
@@ -34,6 +35,7 @@
 	height: 52px;
 	margin: 25px auto;
 	font-size: 25px;
+	font-weight: bold;
 	border: 1px solid #7DB48C;
 	color: #4c4c4c;
 	padding-left: 10px;
@@ -57,8 +59,28 @@
 	top: 530px;
 }
 
+#recent_container {
+	width: 943px;
+	height: 400px;
+	margin: 45px auto;
+}
+
+footer {
+	width: 100%;
+	position: relative;
+	bottom: 0;
+	left: 0;
+}
+
+#fun_canvas {
+	margin: 0;
+	width: 100%;
+	height: 95px;
+	background-color: #4c4c4c;
+}
+
 .cancan {
-	position: fixed;
-	bottom: -4px;
+	position: absolute;
+	bottom: 0;
 	right: 0;
 }

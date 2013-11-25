@@ -10,7 +10,7 @@ gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
 
 #this is to apply bootstrap from: http://foundation.zurb.com/docs/rails.html
-gem 'zurb-foundation', '~> 4.0.0'
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass' #the latest boostrap with SASS gem (via thomas-mcdonald)
 
 #normalizes the css styling
 gem 'normalize-rails'

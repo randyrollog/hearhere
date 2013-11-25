@@ -1,0 +1,33 @@
+<div class="sounds" class="small-block-grid-2">
+ <% @sounds.each do |sound| %>  
+  <div class="sound_tags">
+    <ul class="small-block-grid-2">
+      <li class="sound_grid_name"><%= link_to sound.sound_name.upcase, sound_path(sound), class: "sound_name" %></li>
+      <li class="sound_rating" alt="rating"><%= sound.ratings %></li>
+      <li><%= link_to (image_tag "download.svg", class: "download_btn", alt: "download"), download_path(sound.id), :method => :get, class: "download_btn" %></li>
+      <li>
+        <a class="playback" href="#">
+          <%= image_tag "playbutton.svg", class: "play_btn" %>
+        </a>
+        <%= audio_tag preview_path(sound.id), id: "preview_btn" %>
+      </li> 
+      <li><%# render :partial => 'sounds/rating', :locals => {sound: sound} %></li>
+    </ul>
+  </div>
+  <% end %>   
+</div>
+
+<script> 
+
+ $(function() {
+   $(".playback").click(function(e) {
+     e.preventDefault();
+
+     // This next line will get the audio element
+     // that is adjacent to the link that was clicked.
+     var song = $(this).next('audio').get(0);
+       song.play();
+   });
+ });
+
+</script>

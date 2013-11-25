@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div id="top_nav">
+		<% if current_user %>
+			<%= link_to "", root_path, id: "logocan", class: "nav_contents" %>
+			<div class="nav_content_right">
+				<%= link_to signout_path, method: "delete", class: "nav_contents" do %>
+			  	<%= image_tag "signout.svg", id: "nav_upload" %>
+			  	Sign Out
+				<% end %>
+			</div>
+			<div class="nav_content_right">
+				<%= link_to "My Prof", user_path(current_user), class: "nav_contents" %>
+			</div>
+		<% else %>
+			<%= link_to "", root_path, id: "logocan", class: "nav_contents" %>
+			<div class="nav_content_right">
+				<%= link_to new_user_path, class: "nav_contents" do %>
+			  	<%= image_tag "upload2.svg", id: "nav_upload" %>
+			  	Upload
+				<% end %>
+				</div>
+			<div class="nav_content_right">
+				<%= link_to new_user_path, class: "nav_contents" do %>
+			  	<%= image_tag "signup.svg", id: "nav_icon" %>
+			  	Sign Up
+				<% end %>
+				</div>
+			<div class="nav_content_right">
+				<%= link_to new_authentication_path, class: "nav_contents" do %>
+			  	<%= image_tag "login_v2.svg", id: "nav_icon" %>
+			  	Log In
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+	<!-- render search nav on all pages except home -->
+	<div id="search_nav">
+		<div id="search_container">
+			  <%= render 'sounds/search' unless @disable_nav %>
+		</div>
+	</div>
+</nav>

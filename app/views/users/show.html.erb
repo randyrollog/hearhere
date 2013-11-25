@@ -8,49 +8,46 @@
   })
 
 </script>
-<div class="whole_page_container">
+<div class="user_profile_page">
   <div class="page_container">
-  <%= @user.user_name %>
-  Location: <%= @user.location %>
-  <br />
-  Rating: <%= @user.avg_votes %>
-
-  <div id="feed">
-    <table border="1">
-      <tr>
-        <th>ID</th>
-        <th>Sound Name</th>
+    <div class="greeting">Hey there, <%= @user.user_name.capitalize %></div>
+    <!-- <article>Location: <%# @user.location %></article> -->
+    <article>Your Rating: <%= @user.avg_votes %></article>
+    <br>
+    <article id="feed">
+      <table class="feed_table">
+        Your Recent Activity:
+        <br>
+        <th>Title</th>
         <th>Description</th>
         <th>Location</th>
         <th>Rating</th>
         <th>Tags</th>
         <th>Edit</th>
-      </tr>
-      <% current_user.sounds.each do |sound| %>
-      <tr>
-        <td><%= sound.id %></td>
-        <td><%= sound.sound_name %></td>
-        <td><%= sound.description %></td>
-        <td><%= sound.location %></td>
-        <td><%= sound.ratings %></td>
-        <td><%= raw sound.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %></td>
-        <td><%= button_to "Edit", user_sound_path(current_user, sound.id), method: :get %></td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
+          <tr>
+          <% current_user.sounds.each do |sound| %>
+            <td class="first_td"><%= sound.sound_name %></td>
+            <td class="feed_table_data"><%= sound.description %></td>
+            <td class="feed_table_data"><%= sound.location %></td>
+            <td class="feed_table_data"><%= sound.ratings %></td>
+            <td class="feed_table_data"><%= raw sound.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %></td>
+            <td class="feed_table_data"><%= button_to "Edit", user_sound_path(current_user, sound.id), method: :get %></td>
+          <% end %>
+          </tr>
+        
+      </table>
+      <br>
+      <br>
+      <footer class="user_footer">
+         <%= button_to "View All Sounds", "/sounds", method: :get %>
+      </footer>
+    </article>
 
-  <p id="add_sound_p">
-    <!-- Placeholder for controls to add sound. -->
-  </p>
+    <p id="add_sound_p">
+      <!-- Placeholder for controls to add sound. -->
+    </p>
 
-  <p>
-     <%= button_to "Show All Sounds", "/sounds", method: :get %>
-  </p>
-
-  <p>
-    <%= button_to "Log out", "/authentications/_", method: :delete %>
-  </p>
+    
 
   </div>
 </div>

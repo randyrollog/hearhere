@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.sounds_container {
+	margin-top: 50px;
+}
+
 #tag_cloud {
   width: 400px;
   line-height: 1.6em;
@@ -14,11 +19,11 @@
 	width: 90px;
 	height: 90px;
 	float: left;
-	background: rgba(darkseagreen, .9);
-	text-align: center;
-	border-left: 1px solid white;
+	background: rgba(125, 180, 140, 0.9);
+	border: 2px solid rgb(125, 180, 140);
 	line-height: 20px;
-
+	margin-right: 5px;
+	position: relative;
 }
 
 ul {
@@ -33,7 +38,7 @@ ul {
 	background-color: yellow;
 	position: fixed;
 	right: 0;
-	top: 77px;
+	top: 91px;
 }
 
 #ui_container {
@@ -42,8 +47,76 @@ ul {
 	background-color: red;
 	position: fixed;
 	right: 0;
-	top: 147px;
+	top: 161px;
 }
+
+.sound_grid_name {
+	width: 100%;
+	border-bottom: 1px solid white;
+	position: absolute;
+	top: 0;
+	font-size: 16px;
+	height: 27px;
+	line-height: 27px;
+	text-align: center;
+}
+.sound_grid_name:hover {
+	transition: .7s;
+	background-color: white;
+	color: #7DB48C;
+}
+
+.sound_name {
+	color: white;
+	text-decoration: none;
+	width: 90px;
+}
+.sound_name:hover {
+	transition: .7s;
+	background-color: white;
+	color: #7DB48C;
+	text-decoration: none;
+}
+
+.play_btn {
+	width: 30px;
+	position: absolute;
+	top: 37px;
+	left: 29px;
+	opacity: .8;
+	transition: .2s;
+}
+.play_btn:hover {
+	opacity: 1;
+}
+
+.sound_rating {
+	margin: 0;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	bottom: 0;
+	left: 4px;
+	font-size: 19px;
+	vertical-align: bottom;
+	line-height: 34px;
+	color: white;
+}
+
+.download_btn {
+	width: 27px;
+	height: 27px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	opacity: .8;
+	transition: .2s;
+}
+.download_btn:hover {
+	opacity: 1.2;
+}
+
 
 // #upload_box {
 // 	width: 100px;

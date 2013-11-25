@@ -4,30 +4,17 @@
 <div id="ui_container">UI</div>
 
 <div class="page_container">
+	<div class="sounds_container">
+	  <div id="tag_cloud" class="small-block-grid-2">
+	    <% tag_cloud Sound.tag_counts, %w[s m l] do |tag, css_class| %>
+	      <div class="single_tags"> <%# link_to tag.name, tag_path(tag.name), class: css_class %></div>
+	    <% end %>
+	  </div>
 
-  <div id="tag_cloud" class="small-block-grid-2">
-    <% tag_cloud Sound.tag_counts, %w[s m l] do |tag, css_class| %>
-      <div class="single_tags"> <%# link_to tag.name, tag_path(tag.name), class: css_class %></div>
-    <% end %>
-  </div>
+	  <%= render "recent" %>
 
-  <div class="sounds" class="small-block-grid-2">
-   <% @sounds.each do |sound| %>  
-    <div class="sound_tags">
-      <ul class="small-block-grid-2">
-        <li><%= link_to sound.sound_name, sound_path(sound) %></li>
-        <li>Rating:<%= sound.ratings %></li>
-        <li><%= button_to "Download", download_path(sound.id), :method => :get %></li>
-        <!-- <li><%# button_to "Preview", preview_path(sound.id), :method => :get %></li> -->
-        <li><%= audio_tag preview_path(sound.id), controls: true %></li> 
-        <li><%= render :partial => 'sounds/rating', :locals => {sound: sound} %></li>
-      </ul>
-    </div>
-    <% end %>   
+	  <div><%= button_to "Back to Profile", user_path(current_user), method: :get %></div>
   </div>
-  <div><%= button_to "Back to Profile", user_path(current_user), method: :get %></div>
 </div>
 
 <!-- <canvas id="wx-waveform"></canvas> -->
-<canvas id="fun_canvas"></canvas>
-<%= image_tag "cancan_v7.png", class: "cancan" %>
