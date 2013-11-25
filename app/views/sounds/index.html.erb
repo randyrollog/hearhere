@@ -1,12 +1,35 @@
-<!-- <canvas id="wx-waveform"></canvas> -->
+
 <!-- <canvas id="wx-waveform2"></canvas> -->
 
-<div id="upload_box">Upload</div>
-<div id="ui_container">UI</div>
+<div id="ui_container">
+</div>
 
 <div class="page_container">
 
-	<div id="pad_container"></div>
+	<div id="pad_container">
+    <div class="pads" id="pad1"></div>
+    <div class="pads" id="pad2"></div>
+    <div class="pads" id="pad3"></div>
+    <div class="pads" id="pad4"></div>
+    <div class="pads" id="pad5"></div>
+    <div class="pads" id="pad6"></div>
+    <div class="pads" id="pad7"></div>
+    <div class="pads" id="pad8"></div>
+    <div class="pads" id="pad9"></div>
+    <div class="pads" id="pad10"></div>
+    <div class="pads" id="pad11"></div>
+    <div class="pads" id="pad12"></div>
+    <div class="pads" id="pad13"></div>
+    <div class="pads" id="pad14"></div>
+    <div class="pads" id="pad15"></div>
+    <div class="pads" id="pad16"></div>
+  </div>
+  <div id="play_song_btn">
+    <%= image_tag "play_song.svg", class: "play_controls" %>
+    <%= audio_tag "trunc_HBFS.mp3", id: "daft_punk" %>
+  </div>
+
+  <div class="song_controls" id="stop_song_btn"><%= image_tag "stop.svg", class: "stop_controls" %></div>
 
 	<div class="sounds_container">
 	  <div id="tag_cloud" class="small-block-grid-2">
@@ -14,44 +37,340 @@
 	      <div class="single_tags"><%= link_to tag.name, tag_path(tag.name), class: "tags_class" %></div>
 	    <% end %>
 	  </div>
+  	  <%= render "recent" %>
+    </div>
 
-	  <%= render "recent" %>
-
-	  <div><%= button_to "Back to Profile", user_path(current_user), method: :get %></div>
+	  <!-- <div><%# button_to "Back to Profile", user_path(current_user), method: :get %></div> -->
   </div>
 </div>
 
+<canvas id="wx-waveform"></canvas>
+
 <script defer="defer">
 
-	var stage = new Kinetic.Stage({
-        container: 'pad_container',
-        width: 943,
-        height: 200
-      });
-      var layer = new Kinetic.Layer();
-      var rectX = stage.getWidth() / 2 - 50;
-      var rectY = stage.getHeight() / 2 - 25;
+   $(document).ready(function() {
+     $(".play_controls").click(function(e) {
+       e.preventDefault();
+       $("#daft_punk")[0].play();
+       return false;
+     });
 
-      var box = new Kinetic.Rect({
-        x: rectX,
-        y: rectY,
-        width: 100,
-        height: 50,
-        fill: '#00D2FF',
-        stroke: '#7DB48C',
-        strokeWidth: 2,
-        draggable: true
+     $("#stop_song_btn").click(function(e) {
+       e.preventDefault();
+       $("#daft_punk")[0].pause();
+       return false;
+     });
+   });
+
+   $(document).ready(function() {
+
+      var panel = document.getElementById("wx-uipanel");
+      // a simple drum sampler with compressor, reverb, and delay
+      var workit   = new WX.Sampler({ source:"assets/1workit.mp3" }),
+          makeit   = new WX.Sampler({ source:"assets/2makeit.mp3" }),
+          doit     = new WX.Sampler({ source:"assets/3doit.mp3" }),
+          makesus  = new WX.Sampler({ source:"assets/4makesus.mp3" }),
+          harder   = new WX.Sampler({ source:"assets/5harder.mp3" }),
+          better   = new WX.Sampler({ source:"assets/6better.mp3" }),
+          faster   = new WX.Sampler({ source:"assets/7faster.mp3" }),
+          stronger = new WX.Sampler({ source:"assets/8stronger.mp3" }),
+          morethan = new WX.Sampler({ source:"assets/9morethan.mp3" }),
+          our      = new WX.Sampler({ source:"assets/10our.mp3" }),
+          power    = new WX.Sampler({ source:"assets/11power.mp3" }),
+          never    = new WX.Sampler({ source:"assets/12never.mp3" }),
+          ever     = new WX.Sampler({ source:"assets/13ever.mp3" }),
+          after    = new WX.Sampler({ source:"assets/14after.mp3" }),
+          workis   = new WX.Sampler({ source:"assets/15workis.mp3" }),
+          over     = new WX.Sampler({ source:"assets/16over.mp3" }),
+          comp     = new WX.Comp({ threshold:1.0, ratio:2.0, gain:2.0 });
+          // lpf = new WX.LPF(),
+          // td = new WX.TwinDelay({
+          //     delayTimeLeft: 0.01,
+          //     delayTimeRight: 0,
+          //     feedbackLeft: 0,
+          //     feedbackRight: 0,
+          //     crosstalk: 0.1,
+          //     mix: 0.5 });
+          // adsr = new WX.ADSR({ a:0.2, d:0.4, s:0.5, r:1.5});
+      // patching one-liner
+      WX.link(workit, comp, WX.DAC);
+      WX.link(makeit, comp, WX.DAC);
+      WX.link(doit, comp, WX.DAC);
+      WX.link(makesus, comp, WX.DAC);
+      WX.link(harder, comp, WX.DAC);
+      WX.link(harder, comp, WX.DAC);
+      WX.link(better, comp, WX.DAC);
+      WX.link(faster, comp, WX.DAC);
+      WX.link(stronger, comp, WX.DAC);
+      WX.link(morethan, comp, WX.DAC);
+      WX.link(our, comp, WX.DAC);
+      WX.link(power, comp, WX.DAC);
+      WX.link(never, comp, WX.DAC);
+      WX.link(ever, comp, WX.DAC);
+      WX.link(after, comp, WX.DAC);
+      WX.link(workis, comp, WX.DAC);
+      WX.link(over, comp, WX.DAC);
+      // WX.link(sd, td, lpf, comp, WX.DAC);  
+      // WX.link(hh, td, lpf, comp, WX.DAC);
+      // workit.to(adsr).to(WX.DAC);
+      // additional connection
+      // sd.to(filt).to(comp);
+      // hh.to(filt).to(comp);
+      // summing 2 KDs for solid bottom
+      workit.gain = 0.3;
+      makeit.gain = 0.3;
+      doit.gain = 0.3;
+      makesus.gain = 0.3;
+      harder.gain = 0.3;
+      better.gain = 0.3;
+      faster.gain = 0.3;
+      stronger.gain = 0.3;
+      morethan.gain = 0.3;
+      our     .gain = 0.3;
+      power   .gain = 0.3;
+      never   .gain = 0.3;
+      ever    .gain = 0.3;
+      after   .gain = 0.3;
+      workis  .gain = 0.3;
+      over    .gain = 0.3;
+
+      // visualization from compressor
+      var canvas = document.getElementById("wx-waveform");
+      var context2D = canvas.getContext("2d");
+      var waveform = new WX.Spectrum({ context:context2D });
+      // a bit of styling
+      context2D.strokeStyle = "#dd524c";
+      context2D.lineWidth = 2;
+      // draw audio stream from compressor
+      // lpf.to(waveform);
+      comp.to(waveform);
+
+      (function draw() {
+        requestAnimationFrame(draw);
+        waveform.draw();
+      })();
+
+      document.body.onkeydown = function(event){
+        event.preventDefault(); 
+        switch(event.which) {
+          // noteOn with pitches (60 is default base pitch)
+           case 81:
+             workit.noteOn();
+              var currentColor = document.getElementById("pad1").style.backgroundColor;
+              document.getElementById("pad1").style.background="#ecb842";
+              setTimeout(function () {
+                  document.getElementById("pad1").style.backgroundColor = currentColor
+              }, 300);
+           break;
+           // w
+           case 87:
+             makeit.noteOn();
+             var currentColor = document.getElementById("pad2").style.backgroundColor;
+              document.getElementById("pad2").style.background="#ecb842";
+              setTimeout(function () {
+                  document.getElementById("pad2").style.backgroundColor = currentColor
+              }, 300);
+           break;
+           // e
+           case 69:
+             doit.noteOn();
+             var currentColor = document.getElementById("pad3").style.backgroundColor;
+              document.getElementById("pad3").style.background="#ecb842";
+              setTimeout(function () {
+                  document.getElementById("pad3").style.backgroundColor = currentColor
+              }, 300);
+           break;
+           // r
+           case 82:
+             makesus.noteOn();
+             var currentColor = document.getElementById("pad4").style.backgroundColor;
+              document.getElementById("pad4").style.background="#ecb842";
+              setTimeout(function () {
+                  document.getElementById("pad4").style.backgroundColor = currentColor
+              }, 300);
+           break;
+           // p
+           case 80:
+             harder.noteOn();
+             var currentColor = document.getElementById("pad5").style.backgroundColor;
+              document.getElementById("pad5").style.background="#ecb842";
+              setTimeout(function () {
+                  document.getElementById("pad5").style.backgroundColor = currentColor
+              }, 300);
+           break;
+           // o
+           case 79:
+             better.noteOn();
+             var currentColor = document.getElementById("pad6").style.backgroundColor;
+              document.getElementById("pad6").style.background="#ecb842";
+              setTimeout(function () {
+                  document.getElementById("pad6").style.backgroundColor = currentColor
+              }, 300);
+           break;
+           // i
+           case 73:
+             faster.noteOn();
+             var currentColor = document.getElementById("pad7").style.backgroundColor;
+              document.getElementById("pad7").style.background="#ecb842";
+              setTimeout(function () {
+                  document.getElementById("pad7").style.backgroundColor = currentColor
+              }, 300);
+           break;
+           // u
+           case 85:
+             stronger.noteOn();
+             var currentColor = document.getElementById("pad8").style.backgroundColor;
+              document.getElementById("pad8").style.background="#ecb842";
+              setTimeout(function () {
+                  document.getElementById("pad8").style.backgroundColor = currentColor
+              }, 300);
+           break;
+           // ============================
+           // a
+           case 65:
+             morethan.noteOn();
+             var currentColor = document.getElementById("pad9").style.backgroundColor;
+              document.getElementById("pad9").style.background="#ecb842";
+              setTimeout(function () {
+                  document.getElementById("pad9").style.backgroundColor = currentColor
+              }, 300);
+           break;
+           // s
+           case 83:
+             our.noteOn();
+             var currentColor = document.getElementById("pad10").style.backgroundColor;
+              document.getElementById("pad10").style.background="#ecb842";
+              setTimeout(function () {
+                  document.getElementById("pad10").style.backgroundColor = currentColor
+              }, 300);
+           break;
+           // d
+           case 68:
+             power.noteOn();
+             var currentColor = document.getElementById("pad11").style.backgroundColor;
+              document.getElementById("pad11").style.background="#ecb842";
+              setTimeout(function () {
+                  document.getElementById("pad11").style.backgroundColor = currentColor
+              }, 300);
+           break;
+           // f
+           case 70:
+             never.noteOn();
+             var currentColor = document.getElementById("pad12").style.backgroundColor;
+              document.getElementById("pad12").style.background="#ecb842";
+              setTimeout(function () {
+                  document.getElementById("pad12").style.backgroundColor = currentColor
+              }, 300);
+           break;
+           // ;
+           case 186:
+             ever.noteOn();
+             var currentColor = document.getElementById("pad16").style.backgroundColor;
+              document.getElementById("pad16").style.background="#ecb842";
+              setTimeout(function () {
+                  document.getElementById("pad16").style.backgroundColor = currentColor
+              }, 300);
+           break;
+           // s
+           case 76:
+             after.noteOn();
+             var currentColor = document.getElementById("pad15").style.backgroundColor;
+              document.getElementById("pad15").style.background="#ecb842";
+              setTimeout(function () {
+                  document.getElementById("pad15").style.backgroundColor = currentColor
+              }, 300);
+           break;
+           // k
+           case 75:
+             workis.noteOn();
+             var currentColor = document.getElementById("pad14").style.backgroundColor;
+              document.getElementById("pad14").style.background="#ecb842";
+              setTimeout(function () {
+                  document.getElementById("pad14").style.backgroundColor = currentColor
+              }, 300);             
+           break;
+           // j
+           case 74:
+             over.noteOn();
+             var currentColor = document.getElementById("pad13").style.backgroundColor;
+              document.getElementById("pad13").style.background="#ecb842";
+              setTimeout(function () {
+                  document.getElementById("pad13").style.backgroundColor = currentColor
+              }, 300);
+           break;
+          }
+        };
       });
 
-      // add cursor styling
-      box.on('mouseover', function() {
-        document.body.style.cursor = 'pointer';
-      });
-      box.on('mouseout', function() {
-        document.body.style.cursor = 'default';
-      });
+      // window.addEventListener("keydown", onKeyDown);
 
-      layer.add(box);
-      stage.add(layer);
-
+      // function onKeyDown(e) {
+      //  switch(e.keyCode) {
+      //   // q
+      //    case 81:
+      //      workit.play();
+      //    break;
+      //    // w
+      //    case 87:
+      //      // clapSound.play();
+      //    break;
+      //    // e
+      //    case 69:
+      //      // clapSound.play();
+      //    break;
+      //    // r
+      //    case 82:
+      //      // clapSound.play();
+      //    break;
+      //    // p
+      //    case 80:
+      //      // clapSound.play();
+      //    break;
+      //    // o
+      //    case 79:
+      //      // clapSound.play();
+      //    break;
+      //    // i
+      //    case 73:
+      //      // hiHat.play();
+      //    break;
+      //    // u
+      //    case 85:
+      //      // hiHat.play();
+      //    break;
+      //    // ============================
+      //    // a
+      //    case 65:
+      //      // kickDrum.play();
+      //    break;
+      //    // s
+      //    case 83:
+      //      // clapSound.play();
+      //    break;
+      //    // d
+      //    case 68:
+      //      // clapSound.play();
+      //    break;
+      //    // f
+      //    case 70:
+      //      // clapSound.play();
+      //    break;
+      //    // ;
+      //    case 186:
+      //      // clapSound.play();
+      //    break;
+      //    // s
+      //    case 76:
+      //      // clapSound.play();
+      //    break;
+      //    // k
+      //    case 75:
+      //      // hiHat.play();
+      //    break;
+      //    // j
+      //    case 74:
+      //      // hiHat.play();
+      //    break;
+      //  }
+      // };
 </script>
