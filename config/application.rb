@@ -1,3 +1,5 @@
+config.assets.initialize_on_precompile = false
+
 require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
@@ -25,3 +27,5 @@ module HearHere
     end
   end
 end
+
+
