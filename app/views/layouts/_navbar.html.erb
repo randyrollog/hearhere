@@ -2,6 +2,7 @@
 	<div id="top_nav">
 		<% if current_user %>
 			<%= link_to "", root_path, id: "logocan", class: "nav_contents" %>
+			<div id="logotext" class="nav_contents">HearHere</div>
 			<div class="nav_content_right">
 				<%= link_to signout_path, method: "delete", class: "nav_contents" do %>
 			  	<%= image_tag "signout.svg", id: "nav_upload" %>
@@ -13,6 +14,7 @@
 			</div>
 		<% else %>
 			<%= link_to "", root_path, id: "logocan", class: "nav_contents" %>
+			<div id="logotext" class="nav_contents">HearHere</div>
 			<div class="nav_content_right">
 				<%= link_to new_user_path, class: "nav_contents" do %>
 			  	<%= image_tag "upload2.svg", id: "nav_upload" %>
