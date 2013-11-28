@@ -60,7 +60,7 @@
 }
 
 #recent_banner {
-	width: 130px;
+	width: 100px;
 	position: absolute;
 	left: 0;
 	top: 530px;
@@ -90,4 +90,20 @@ footer {
 	position: absolute;
 	bottom: 0;
 	right: 0;
+}
+
+#jammin {
+	background: #7DB48C;
+	width: 180px;
+	height: 20px;
+	padding: 5px;
+	text-decoration: none;
+	text-align: center;
+	color: white;
+	position: absolute;
+	right: 240px;
+}
+#jammin:hover {
+	color: #ecb842;
+	background: white;
 }
