@@ -93,17 +93,22 @@ footer {
 }
 
 #jammin {
+	text-decoration: none;
+	color: white;
+}
+#jammin:hover {
+	color: #ecb842;
+}
+
+#jammin_div {
 	background: #7DB48C;
 	width: 180px;
 	height: 20px;
-	padding: 5px;
-	text-decoration: none;
 	text-align: center;
-	color: white;
 	position: absolute;
 	right: 240px;
 }
-#jammin:hover {
+#jammin_div:hover {
 	color: #ecb842;
 	background: white;
 }
