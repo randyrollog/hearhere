@@ -3,8 +3,6 @@
 <div id="ui_container">
 </div>
 
-
-
 <div class="page_container">
 
 	<div id="pad_container">
@@ -25,14 +23,21 @@
     <div class="pads" id="pad15">L</div>
     <div class="pads" id="pad16">;</div>
   </div>
- 
+
   <div id="playback_controls">
-    <div id="play_song_btn_wrapper">
+
+    <select id="song_selection" class="pb_controllers">
+      <option value="1">Daft Punk - Harder, Better, Faster, Stronger</option>
+      <option value="2">Daft Punk - One More Time</option>
+      <option value="3">Daft Punk - Aerodynamic</option>
+    </select>
+
+    <div id="play_song_btn_wrapper" class="pb_controllers">
       <%= image_tag "play_song.svg", id: "play_song_btn" %>
       <%= audio_tag "trunc_HBFS.mp3", id: "daft_punk" %>
     </div>
 
-    <div id="stop_song_btn_wrapper">
+    <div id="stop_song_btn_wrapper" class="pb_controllers">
       <%= image_tag "stop.svg", id: "stop_song_btn" %>
     </div>
   </div>
@@ -43,8 +48,8 @@
 	      <div class="single_tags"><%= link_to tag.name, tag_path(tag.name), class: "tags_class" %></div>
 	    <% end %>
 	  </div>
-  	  <%= render "recent" %>
-    </div>
+  	<%= render "recent" %>
+  </div>
 
 	  <!-- <div><%# button_to "Back to Profile", user_path(current_user), method: :get %></div> -->
 </div>
@@ -54,22 +59,9 @@
 <script defer="defer">
 
    $(document).ready(function() {
-     $(".play_controls").click(function(e) {
-       e.preventDefault();
-       $("#daft_punk")[0].play();
-       return false;
-     });
-
-     $("#stop_song_btn").click(function(e) {
-       e.preventDefault();
-       $("#daft_punk")[0].pause();
-       return false;
-     });
-   });
-
-   $(document).ready(function() {
 
       var panel = document.getElementById("wx-uipanel");
+
       // a simple drum sampler with compressor, reverb, and delay
       var workit   = new WX.Sampler({ source:"assets/1workit.mp3" }),
           makeit   = new WX.Sampler({ source:"assets/2makeit.mp3" }),
@@ -145,7 +137,7 @@
       var waveform = new WX.Spectrum({ context:context2D });
       // a bit of styling
       context2D.strokeStyle = "#dd524c";
-      context2D.lineWidth = 2;
+      context2D.lineWidth = 1;
       // draw audio stream from compressor
       // lpf.to(waveform);
       comp.to(waveform);
@@ -154,6 +146,18 @@
         requestAnimationFrame(draw);
         waveform.draw();
       })();
+
+      $("#play_song_btn_wrapper").click(function(e) {
+        e.preventDefault();
+        $("#daft_punk")[0].play();
+        return false;
+      });
+
+      $("#stop_song_btn_wrapper").click(function(e) {
+        e.preventDefault();
+        $("#daft_punk")[0].pause();
+        return false;
+      });
 
       document.body.onkeydown = function(event){
         event.preventDefault(); 

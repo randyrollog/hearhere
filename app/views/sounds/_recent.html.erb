@@ -11,7 +11,7 @@
         </a>
         <%= audio_tag preview_path(sound.id), id: "preview_btn" %>
       </li> 
-      <li><%= render :partial => 'sounds/rating', :locals => {sound: sound} %></li>
+      <li><%= render partial: 'sounds/rating', locals: {sound: sound} %></li>
     </ul>
   </div>
   <% end %>   

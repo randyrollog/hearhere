@@ -32,22 +32,32 @@
 
 #playback_controls {
 	position: absolute;
-	left: 6px;
-	top: -11px;
+	left: -225px;
+	top: 1px;
+}
+
+#song_selection {
+	width: 167px;
+	height: 26px;
+	padding-left: 4px;
+	border-radius: 0;
+	border: 1px solid #7DB48C;
+	border-top: none;
+	background-repeat: no-repeat;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.pb_controllers {
+	vertical-align: middle;
+	display: inline-block;
 }
 
 #play_song_btn_wrapper {
 	width: 25px;
 	height: 25px;
-	position: absolute;
-	right: 35px;
 	background: #7DB48C;
 	text-align: center;
-	line-height: 30px;
-	margin-top: 11px;
-	color: white;
-	font-weight: bold;
-	font-size: 20px;
 	box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
 }
@@ -64,15 +74,9 @@
 #stop_song_btn_wrapper {
 	width: 25px;
 	height: 25px;
-	position: absolute;
-	right: 8px;
 	background: indianred;
 	text-align: center;
 	line-height: 30px;
-	margin-top: 11px;
-	color: brown;
-	font-weight: bold;
-	font-size: 20px;
 	box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
 }
@@ -83,9 +87,7 @@
 
 #stop_song_btn {
 	height: 10px;
-	position: absolute;
-	left: 8px;
-	top: 7px
+	margin-bottom: 4px;
 }
 
 

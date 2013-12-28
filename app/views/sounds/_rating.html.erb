@@ -3,13 +3,13 @@
   $(document).ready(function(){
     
     // Detect click on unique button
-    $("#submit_int" + <%=sound.id%>).click(function(){
+    $("#submit_int" + <%= sound.id %>).click(function(){
       
       // Grab number from associated number field
-      rating = $("#number_input" + <%=sound.id%>).val();
+      rating = $("#number_input" + <%= sound.id %>).val();
       console.log(rating);
       // Push data to rate method in sounds controller
-      $.post("/rate_json/" + <%=sound.id%>, {rating: rating},
+      $.post("/rate_json/" + <%= sound.id %>, {rating: rating},
         function(data,status){
           console.log("Data: " + data + "\nStatus: " + status);
       });
@@ -19,6 +19,6 @@
 </script>
 
 <% if current_user && current_user.can_vote_for?(sound) %>
-  <input id="number_input<%=sound.id%>" type="number" name="rating" min="1" max="3">
-  <button id="submit_int<%=sound.id%>" type="submit">Rate</button>
+  <input id="number_input<%= sound.id %>" type="number" name="rating" min="1" max="3">
+  <button id="submit_int<%= sound.id %>" type="submit">Rate</button>
 <% end %>
