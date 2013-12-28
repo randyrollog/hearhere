@@ -1,8 +1,9 @@
-
 <!-- <canvas id="wx-waveform2"></canvas> -->
 
 <div id="ui_container">
 </div>
+
+
 
 <div class="page_container">
 
@@ -24,12 +25,17 @@
     <div class="pads" id="pad15">L</div>
     <div class="pads" id="pad16">;</div>
   </div>
-  <div id="play_song_btn">
-    <%= image_tag "play_song.svg", class: "play_controls" %>
-    <%= audio_tag "trunc_HBFS.mp3", id: "daft_punk" %>
-  </div>
+ 
+  <div id="playback_controls">
+    <div id="play_song_btn_wrapper">
+      <%= image_tag "play_song.svg", id: "play_song_btn" %>
+      <%= audio_tag "trunc_HBFS.mp3", id: "daft_punk" %>
+    </div>
 
-  <div class="song_controls" id="stop_song_btn"><%= image_tag "stop.svg", class: "stop_controls" %></div>
+    <div id="stop_song_btn_wrapper">
+      <%= image_tag "stop.svg", id: "stop_song_btn" %>
+    </div>
+  </div>
 
 	<div class="sounds_container">
 	  <div id="tag_cloud" class="small-block-grid-2">
@@ -41,7 +47,6 @@
     </div>
 
 	  <!-- <div><%# button_to "Back to Profile", user_path(current_user), method: :get %></div> -->
-  </div>
 </div>
 
 <canvas id="wx-waveform"></canvas>
