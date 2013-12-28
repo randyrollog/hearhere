@@ -7,13 +7,33 @@
 
 <div class="page_container">
 
-  <!-- <div class="media">
-    <a href="" ng-click="player.play(track)" class="img mt1 mr1 white pos-rel z2 float-up anim-delay-4 btn-scale">PLAY</a>
-  </div>
+  <div id="playback_controls">
 
-  <div class="header-waveform">
-    <%#= image_tag "plangular-waveform-5.svg", class: "header-waveform-img" %>
-  </div> -->
+    <select id="song_selection" class="pb_controllers">
+      <option value="0" selected="selected" disabled="disabled">Choose A Daft Punk Song</option>
+      <option value="1">Harder, Better, Faster, Stronger</option>
+      <option value="2">One More Time</option>
+      <option value="3">Aerodynamic</option>
+    </select>
+
+    <div plangular data-src="http://soundcloud.com/daftlist/harder-better-faster-stronger" class="pb_controllers">
+      <a href="" ng-click="player.play(track)" ng-hide="player.playing == track">
+        <div id="play_song_btn_wrapper" class="pb_controllers">
+          <%= image_tag "play_song.svg", id: "play_song_btn" %>
+        </div>
+      </a>
+      <a href="" ng-click="player.pause()" ng-show="player.playing == track">
+        <div id="stop_song_btn_wrapper" class="pb_controllers">
+          <%= image_tag "stop.svg", id: "stop_song_btn" %>
+        </div>
+      </a>
+      <div class="bd pb_controllers">
+        <progress value="{{ currentTime / duration }}" ng-click="seekTo($event)" id="progress_bar">{{ currentTime / duration }}</progress>
+        <small>{{ currentTime | playTime }} | {{ duration | playTime }}</small>
+      </div>
+    </div>
+
+  </div>
   
 	<div id="pad_container">
     <div class="pads" id="pad1">Q</div>

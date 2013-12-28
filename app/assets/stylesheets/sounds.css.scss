@@ -33,7 +33,7 @@
 #playback_controls {
 	position: absolute;
 	left: 0;
-	top: 62px;
+	top: -39px;
 }
 
 #song_selection {
@@ -51,6 +51,16 @@
 .pb_controllers {
 	vertical-align: middle;
 	display: inline-block;
+}
+
+#progress_bar {
+	height: 26px;
+	vertical-align: middle;
+	-webkit-appearance: none;
+}
+
+small {
+	color: black;
 }
 
 #play_song_btn_wrapper {
