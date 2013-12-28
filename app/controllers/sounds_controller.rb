@@ -3,6 +3,8 @@ class SoundsController < ApplicationController
   # responds with (@sounds)
 
   def index
+    @disable_nav = true
+
     @sounds = Sound.all
     if params[:tag]
       @sounds = Sound.tagged_with(params[:tag])

@@ -76,11 +76,10 @@ body {
 }
 
 #top_nav {
+	position: relative;	
 	width: 943px;
 	margin: 0 auto;
 	font-family: Roboto;
-	overflow: hidden;
-	border-bottom: 1px solid white;
 }
 
 #logocan {

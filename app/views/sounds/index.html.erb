@@ -3,8 +3,18 @@
 <div id="ui_container">
 </div>
 
+
+
 <div class="page_container">
 
+  <!-- <div class="media">
+    <a href="" ng-click="player.play(track)" class="img mt1 mr1 white pos-rel z2 float-up anim-delay-4 btn-scale">PLAY</a>
+  </div>
+
+  <div class="header-waveform">
+    <%#= image_tag "plangular-waveform-5.svg", class: "header-waveform-img" %>
+  </div> -->
+  
 	<div id="pad_container">
     <div class="pads" id="pad1">Q</div>
     <div class="pads" id="pad2">W</div>
@@ -22,25 +32,6 @@
     <div class="pads" id="pad14">K</div>
     <div class="pads" id="pad15">L</div>
     <div class="pads" id="pad16">;</div>
-  </div>
-
-  <div id="playback_controls">
-
-    <select id="song_selection" class="pb_controllers">
-      <option value="0" selected="selected" disabled="disabled">Choose A Daft Punk Song</option>
-      <option value="1">Harder, Better, Faster, Stronger</option>
-      <option value="2">One More Time</option>
-      <option value="3">Aerodynamic</option>
-    </select>
-
-    <div id="play_song_btn_wrapper" class="pb_controllers">
-      <%= image_tag "play_song.svg", id: "play_song_btn" %>
-      <%= audio_tag "trunc_HBFS.mp3", id: "daft_punk" %>
-    </div>
-
-    <div id="stop_song_btn_wrapper" class="pb_controllers">
-      <%= image_tag "stop.svg", id: "stop_song_btn" %>
-    </div>
   </div>
 
 	<div class="sounds_container">
@@ -142,7 +133,7 @@
 
     $('#song_selection').change(function(event) {
       event.preventDefault();
-      
+
       if($(this).val() == "1") {
         $("#play_song_btn_wrapper").click(function(event) {
           event.preventDefault();

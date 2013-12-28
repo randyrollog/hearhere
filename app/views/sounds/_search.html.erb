@@ -1,9 +1,13 @@
-<% if action_name != 'new' && action_name != 'edit' %>
-  <%= form_tag :controller => 'sounds', :action => 'search', :method => 'get' do %>
-		  <div class="icon_field"><%= image_tag "search.svg", class: "search_icon" %></div>
-	    <div class="icon_field"><%= text_field_tag :search, params[:search], placeholder: "Search for Sounds", :id => 'search_field' %></div>
-    <%# submit_tag "", class: "search_btn" %> 
-    <%# link_to_function "Clear", "$('#search_field').val('')", id: "clear_field" %>
-  <% end %> 
+<div id="search_nav">
+	<div id="search_container">
+		<% if action_name != 'new' && action_name != 'edit' %>
+		  <%= form_tag :controller => 'sounds', :action => 'search', :method => 'get' do %>
+				  <div class="icon_field"><%= image_tag "search.svg", class: "search_icon" %></div>
+			    <div class="icon_field"><%= text_field_tag :search, params[:search], placeholder: "Search for Sounds", :id => 'search_field' %></div>
+		    <%# submit_tag "", class: "search_btn" %> 
+		    <%# link_to_function "Clear", "$('#search_field').val('')", id: "clear_field" %>
+		  <% end %> 
 
-<% end %> 
+		<% end %> 
+	</div>
+</div>
