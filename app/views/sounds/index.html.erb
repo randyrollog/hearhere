@@ -27,9 +27,10 @@
   <div id="playback_controls">
 
     <select id="song_selection" class="pb_controllers">
-      <option value="1">Daft Punk - Harder, Better, Faster, Stronger</option>
-      <option value="2">Daft Punk - One More Time</option>
-      <option value="3">Daft Punk - Aerodynamic</option>
+      <option value="0" selected="selected" disabled="disabled">Choose A Daft Punk Song</option>
+      <option value="1">Harder, Better, Faster, Stronger</option>
+      <option value="2">One More Time</option>
+      <option value="3">Aerodynamic</option>
     </select>
 
     <div id="play_song_btn_wrapper" class="pb_controllers">
@@ -153,7 +154,6 @@
           $("#daft_punk")[0].pause();
           return false;
         })
-
         document.body.onkeydown = function(event) {
           event.preventDefault();
           switch(event.which) {
