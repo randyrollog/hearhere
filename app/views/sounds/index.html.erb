@@ -142,6 +142,7 @@
 
     $('#song_selection').change(function(event) {
       event.preventDefault();
+      
       if($(this).val() == "1") {
         $("#play_song_btn_wrapper").click(function(event) {
           event.preventDefault();
@@ -157,142 +158,100 @@
 
         document.body.onkeydown = function(event) {
           event.preventDefault();
-          var currentColor = document.getElementById("pad1").style.backgroundColor;
-          function activeColor(pad_num) {
-            document.getElementById(pad_num).style.background="#ecb842";
-          }
           
+          function changeColor(pad_num) {
+            // define original color
+            var currentColor = document.getElementById("pad1").style.backgroundColor;
+            // change color and set it back to og color after a little bit
+            document.getElementById(pad_num).style.background="#ecb842";
+            setTimeout(function () {
+              document.getElementById(pad_num).style.backgroundColor = currentColor
+            }, 300);
+          }
 
           switch(event.which) {
             // q
             case 81:
               workit.noteOn();
-              activeColor("pad1");
-              // document.getElementById("pad1").style.background="#ecb842";
-              setTimeout(function () {
-                document.getElementById("pad1").style.backgroundColor = currentColor
-              }, 300);
+              changeColor("pad1");              
             break;
             // w
             case 87:
               makeit.noteOn();
-              document.getElementById("pad2").style.background="#ecb842";
-              setTimeout(function () {
-                  document.getElementById("pad2").style.backgroundColor = currentColor
-              }, 300);
+              changeColor("pad2");
             break;
             // e
             case 69:
               doit.noteOn();
-              document.getElementById("pad3").style.background="#ecb842";
-              setTimeout(function () {
-                  document.getElementById("pad3").style.backgroundColor = currentColor
-              }, 300);
+              changeColor("pad3");
             break;
             // r
             case 82:
               makesus.noteOn();
-              document.getElementById("pad4").style.background="#ecb842";
-              setTimeout(function () {
-                  document.getElementById("pad4").style.backgroundColor = currentColor
-              }, 300);
+              changeColor("pad4");
             break;
             // p
             case 80:
               harder.noteOn();
-              document.getElementById("pad5").style.background="#ecb842";
-              setTimeout(function () {
-                  document.getElementById("pad5").style.backgroundColor = currentColor
-              }, 300);
+              changeColor("pad5");
             break;
             // o
             case 79:
               better.noteOn();
-              document.getElementById("pad6").style.background="#ecb842";
-              setTimeout(function () {
-                  document.getElementById("pad6").style.backgroundColor = currentColor
-              }, 300);
+              changeColor("pad6");
             break;
             // i
             case 73:
               faster.noteOn();
-              document.getElementById("pad7").style.background="#ecb842";
-              setTimeout(function () {
-                  document.getElementById("pad7").style.backgroundColor = currentColor
-              }, 300);
+              dchangeColor("pad7");
             break;
             // u
             case 85:
               stronger.noteOn();
-              document.getElementById("pad8").style.background="#ecb842";
-              setTimeout(function () {
-                  document.getElementById("pad8").style.backgroundColor = currentColor
-              }, 300);
+              changeColor("pad8");
             break;
+
             // ============================
+
             // a
             case 65:
               morethan.noteOn();
-              document.getElementById("pad9").style.background="#ecb842";
-              setTimeout(function () {
-                  document.getElementById("pad9").style.backgroundColor = currentColor
-              }, 300);
+              changeColor("pad9");
             break;
             // s
             case 83:
               our.noteOn();
-              document.getElementById("pad10").style.background="#ecb842";
-              setTimeout(function () {
-                  document.getElementById("pad10").style.backgroundColor = currentColor
-              }, 300);
+              changeColor("pad10");
             break;
             // d
             case 68:
               power.noteOn();
-               document.getElementById("pad11").style.background="#ecb842";
-               setTimeout(function () {
-                   document.getElementById("pad11").style.backgroundColor = currentColor
-               }, 300);
+              changeColor("pad11");
             break;
             // f
             case 70:
               never.noteOn();
-               document.getElementById("pad12").style.background="#ecb842";
-               setTimeout(function () {
-                   document.getElementById("pad12").style.backgroundColor = currentColor
-               }, 300);
+               changeColor("pad12");
             break;
             // ;
             case 186:
               ever.noteOn();
-               document.getElementById("pad16").style.background="#ecb842";
-               setTimeout(function () {
-                   document.getElementById("pad16").style.backgroundColor = currentColor
-               }, 300);
+              changeColor("pad16");
             break;
             // s
             case 76:
               after.noteOn();
-               document.getElementById("pad15").style.background="#ecb842";
-               setTimeout(function () {
-                   document.getElementById("pad15").style.backgroundColor = currentColor
-               }, 300);
+              changeColor("pad15");
             break;
             // k
             case 75:
               workis.noteOn();
-               document.getElementById("pad14").style.background="#ecb842";
-               setTimeout(function () {
-                   document.getElementById("pad14").style.backgroundColor = currentColor
-               }, 300);             
+              changeColor("pad14");            
             break;
             // j
             case 74:
               over.noteOn();
-               document.getElementById("pad13").style.background="#ecb842";
-               setTimeout(function () {
-                   document.getElementById("pad13").style.backgroundColor = currentColor
-               }, 300);
+              changeColor("pad13");
             break;
           };
         };
