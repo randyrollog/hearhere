@@ -1,8 +1,8 @@
 @font-face {
-    font-family: Roboto;
-    src: url("/assets/RobotoCondensed-Regular.ttf") format("truetype");
-    font-weight: normal;
-	  font-style: normal;
+  font-family: Roboto;
+  src: url("/assets/RobotoCondensed-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
@@ -93,7 +93,7 @@ body {
 	transition:	.2s;
 }
 #logocan:hover {
-	background: asset-url("logocan_v13.png", image) 0px 48px;
+	background: asset-url("logocan_v13.png", image) 0px -62px;
 }
 
 .nav_contents {
