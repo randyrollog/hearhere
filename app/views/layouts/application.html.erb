@@ -4,16 +4,23 @@
   <title>HearHere</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "http://d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v4.7.4.min.js" %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"  %>
-	<%= javascript_include_tag "plangular.js"  %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body ng-app="plangular">
+<body ng-app="hearhereApp">
 
 	<%= render "layouts/navbar" %>
 
 	<%= yield %>
+
+	<footer>
+		<div id="footer">
+			<p class="jam_feature footer_info">About</p>
+			<p class="jam_feature footer_info">Sample Pad</p>
+			<p class="footer_info">© Copyright 2013</p>
+		</div>
+	</footer>
 
 </body>
 </html>

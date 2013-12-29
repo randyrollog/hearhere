@@ -11,12 +11,18 @@ body {
 	height: 100%;
 	font-family: Roboto;
 	color: white;
+	background: #7DB48C;
+}
+
+#whole_page_container {
+	height: 100%;
+	width: 100%;
+	background-color: #7DB48C;
 }
 
 #search_nav {
 	width: 100%;
 	overflow: hidden;
-	border-bottom: 1px solid #878787;
 	background-color: white;
 	height: 40px;
 }
@@ -134,7 +140,7 @@ body {
 }
 
 .whole_page_container {
-	min-height: 650px;
+	height: 100%;
 	width: 100%;
 	background-color: #7DB48C;
 }

@@ -1,7 +1,9 @@
 class AuthenticationsController < ApplicationController
   before_action :authenticate_user, only: [:destroy]
 
+
   def new
+    @disable_nav = true
     # session[:user_id] = User.first.id
     # Are they already logged in?
     if current_user

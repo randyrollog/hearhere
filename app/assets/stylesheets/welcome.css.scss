@@ -37,6 +37,12 @@
 	position: relative;
 }
 
+#search_wrapper {
+	position: relative;
+	width: 944px;
+	margin: 0 auto;
+}
+
 #main_search_bar {
 	width: 943px;
 	height: 52px;
@@ -55,8 +61,15 @@
 #down_arrow {
 	position: absolute;
 	width: 80px;
-	margin-left: 12%;
+	left: -10px;
 	margin-top: -30px;
+}
+
+#recent_wrapper {
+	width: 100%;
+	background: white;
+	margin: -46px auto;
+	padding-top: 46px;
 }
 
 #recent_banner {
@@ -73,10 +86,32 @@
 }
 
 footer {
+	height: 23px;
+	text-align: right;
 	width: 100%;
-	position: relative;
+	position: fixed;
+	background: #ecb842;
 	bottom: 0;
 	left: 0;
+}
+
+#footer {
+	width: 943px;
+	margin: 0 auto; 
+}
+
+.footer_info {
+	display: inline-block;
+	margin: 0;
+
+}
+
+.jam_feature {
+	text-align: left;
+	float: left;
+	line-height: 23px;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 #fun_canvas {

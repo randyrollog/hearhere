@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    @disable_nav = true
     @user = User.new(user_name: params[:user_name])
   end
 

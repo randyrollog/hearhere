@@ -1,14 +1,12 @@
-<div class="whole_page_container">
-  <div class="page_container">
-    <div class="key_icon"><%= image_tag "signup.svg" %></div>
-    <h1>Sign Up!</h1>
-    <%= form_for @user do |u| %>
-      <div id="super-container">
-        <p class="auth_form"><%= u.text_field :user_name, placeholder: "Username", class: "auth_form" %></p>
-        <p class="auth_form"><%= u.text_field :location, placeholder: "Location (ex.Los Angeles, CA)", class: "auth_form" %></p>
-        <p class="auth_form"><%= u.password_field :password, placeholder: "Password", class: "auth_form" %></p>
-        <p class="auth_form"><%= u.password_field :password_confirmation, placeholder: "Confirm Password", class: "auth_form" %></p>
-        <p class="auth_form"><%= u.submit "Create Account!", class: "auth_btn" %></p>
-    <% end %>
-  </div>
+<div class="page_container">
+  <div class="key_icon"><%= image_tag "signup.svg" %></div>
+  <h1>Sign Up</h1>
+  <%= form_for @user do |u| %>
+    <div id="super-container">
+      <p class="auth_form"><%= u.text_field :user_name, placeholder: "Username", class: "auth_form" %></p>
+      <p class="auth_form"><%= u.text_field :location, placeholder: "Location (ex.Los Angeles, CA)", class: "auth_form" %></p>
+      <p class="auth_form"><%= u.password_field :password, placeholder: "Password", class: "auth_form" %></p>
+      <p class="auth_form"><%= u.password_field :password_confirmation, placeholder: "Confirm Password", class: "auth_form" %></p>
+      <p class="auth_form"><%= u.submit "Create Account!", class: "auth_btn" %></p>
+  <% end %>
 </div>

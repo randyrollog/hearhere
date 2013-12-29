@@ -10,7 +10,7 @@
 				<% end %>
 			</div>
 			<div class="nav_content_right">
-				<%= link_to "My Prof", user_path(current_user), class: "nav_contents" %>
+				<%= link_to current_user.user_name.capitalize, user_path(current_user), class: "nav_contents" %>
 			</div>
 		<% else %>
 			<%= link_to "", root_path, id: "logocan", class: "nav_contents" %>

@@ -1,44 +1,42 @@
 <section id="welcome_div">
-	<div class="header_text text1">Build a Collection of Audio.</div>
-	<div class="header_text">& Share it with the <strong id="world">World.</strong></div>
-</section>
- <section id="main_search_bar_div">
- 	<div id="down_arrow"><%= image_tag "downarrow.svg", id: "down_arrow" %></div>
-  <%= form_tag :controller => 'sounds', :action => 'search', :method => 'get' do %>
-	  <%= text_field_tag :search, params[:search], placeholder: "Search Sounds", id: "main_search_bar", autofocus: true %>
-    <%# submit_tag "Search", :name => nil %> 
-    <%# link_to_function "Clear", "$('#main_search_bar').val('')", id: "clear_field" %>
-  <% end %>
-  <!-- <div id="home_see_all_sounds">View All Sounds</div> -->
+	<div class="header_text text1">Build a collection of audio</div>
+	<div class="header_text">& share it with the <strong id="world">World.</strong></div>
 </section>
 
-<%= link_to (image_tag "recent_banner.svg"), sounds_path, id: "recent_banner" %>
+<section id="main_search_bar_div">
+	<div id="search_wrapper">
+		<div id="down_arrow"><%= image_tag "downarrow.svg", id: "down_arrow" %></div>
+	  <%= form_tag controller: 'sounds', action: 'search', method: 'get' do %>
+		  <%= text_field_tag :search, params[:search], placeholder: "Search Sounds", id: "main_search_bar", autofocus: true %>
+	  <% end %>
+	</div>
+</section>
 
-<div id="jammin_div"><%= link_to "FEEL LIKE JAMMIN'?", sounds_path, id: "jammin" %></div>
+<div id="recent_wrapper">
+	<%= link_to (image_tag "recent_banner.svg", id: "recent_banner"), sounds_path %>
 
-<div id="recent_container">
-	<%= render "sounds/recent" %>
+	<div id="recent_container"><%= render "sounds/recent" %></div>
 </div>
 
-<footer>
+<!-- <footer>
 	<canvas id="fun_canvas"></canvas>
-	<%= image_tag "cancan_v7.png", class: "cancan" %>
-</footer>
+	<%#= image_tag "cancan_v7.png", class: "cancan" %>
+</footer> -->
 
 <script>
-(function () {
+	(function () {
 
-	var arrow = $('#down_arrow');
+		var arrow = $('#down_arrow');
 
-	arrow.hide();
-	$( "#welcome_div" ).mouseenter(function() {
-	  arrow.fadeIn(300);
-	});
-   function runIt() {
-       arrow.animate({top:'+=20'}, 800);
-       arrow.animate({top:'-=20'}, 800, runIt);
-   }
-   runIt();
-   
-}());
+		arrow.hide();
+		$( "#welcome_div" ).mouseenter(function() {
+		  arrow.fadeIn(300);
+		});
+	   function runIt() {
+	       arrow.animate({top:'+=20'}, 800);
+	       arrow.animate({top:'-=20'}, 800, runIt);
+	   }
+	   runIt();
+	   
+	}());
 </script>
