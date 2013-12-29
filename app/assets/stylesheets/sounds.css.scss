@@ -162,12 +162,14 @@ ul {
 	font-size: 16px;
 	height: 27px;
 	line-height: 27px;
-	text-align: center;
+	text-align: left;
+	margin-left: 4px;
 }
-.sound_grid_name:hover {
-	transition: .7s;
-	background-color: white;
-	color: #7DB48C;
+
+#plus_sign {
+	text-align: right;
+	color: white;
+	text-decoration: none;
 }
 
 .sound_name {

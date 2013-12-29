@@ -19,7 +19,7 @@ class Sound < ActiveRecord::Base
 
 
   def ratings
-    read_attribute(:ratings) || sound_ratings.average(:value)
+    read_attribute(:ratings) || sound_ratings.average(:value).to_f.round(1)
   end
 
   def self.search(search)
