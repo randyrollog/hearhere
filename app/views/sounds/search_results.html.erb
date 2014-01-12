@@ -1,11 +1,12 @@
 <div class="page_container">
 	<% if @sounds.empty? %>
-	  <h3>No sounds found!</h3>
+	  <h2>No sounds found!</h2>
+	  <div id="youshould">
+	  	You should upload it! <br>
+	  	<%= link_to "Login", new_authentication_path %> or <%= link_to "Sign Up", new_user_path %> to upload
+	  </div>
+
 	<% else %>
-	  <% @sounds.each do |sound| %>
-	    <ul>
-	      <li><%= sound.sound_name%> <%= sound.description%> <%= sound.location%></li>
-	    </ul>
-	  <% end %>
+	  <%= render "sounds/recent" %>
 	<% end %>
 </div>
