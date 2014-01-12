@@ -2,7 +2,7 @@
  <% @sounds.each do |sound| %>  
   <div class="sound_tags">
     <ul class="small-block-grid-2">
-      <li class="sound_grid_name"><%= link_to sound.sound_name.upcase, sound_path(sound), class: "sound_name" %> <a href="#" id="plus_sign">+</a></li>
+      <li class="sound_grid_name"><%= link_to (truncate sound.sound_name.upcase, length: 8), sound_path(sound), class: "sound_name" %> <a href="#" id="plus_sign">+</a></li>
       <li class="sound_rating" alt="rating"><%= sound.ratings %></li>
       <li><%= link_to (image_tag "download.svg", class: "download_btn", alt: "download"), download_path(sound.id), :method => :get, class: "download_btn" %></li>
       <li>
