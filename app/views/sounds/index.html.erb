@@ -66,6 +66,12 @@
 
   $(document).ready(function() {
 
+    $('.pads').droppable({
+      drop: function(event, ui) {
+        
+      }
+    })
+
     var panel = document.getElementById("wx-uipanel");
 
     // a simple drum sampler with compressor, reverb, and delay

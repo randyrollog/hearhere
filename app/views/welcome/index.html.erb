@@ -9,6 +9,7 @@
 	
 </section>
 
+<!-- user can search for sounds -->
 <section id="main_search_bar_div">
 	<div id="search_wrapper">
 		<div id="down_arrow"><%= image_tag "downarrow.svg", id: "down_arrow" %></div>
@@ -18,15 +19,11 @@
 	</div>
 </section>
 
+<!-- load the recent uploads as a partial -->
 <div id="recent_wrapper">
 	<%= link_to (image_tag "recent_banner.svg", id: "recent_banner"), sounds_path %>
 	<div id="recent_container"><%= render "sounds/recent" %></div>
 </div>
-
-<!-- <footer>
-	<canvas id="fun_canvas"></canvas>
-	<%#= image_tag "cancan_v7.png", class: "cancan" %>
-</footer> -->
 
 <footer>
 	<div id="footer">
@@ -35,6 +32,7 @@
 		<p class="footer_info">© Copyright 2013</p>
 	</div>
 </footer>
+
 <script>
 	(function () {
 
@@ -58,10 +56,11 @@
 		  arrow.fadeIn(300);
 		});
 	   function runIt() {
-	       arrow.animate({top:'+=20'}, 800);
-	       arrow.animate({top:'-=20'}, 800, runIt);
+      arrow.animate({top:'+=20'}, 800);
+      arrow.animate({top:'-=20'}, 800, runIt);
 	   }
+
 	   runIt();
 	   
-	}());
+	})();
 </script>
