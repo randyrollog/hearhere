@@ -1,6 +1,11 @@
 <section id="welcome_div">
 	<div class="header_text text1">Build a collection of audio</div>
 	<div class="header_text">& share it with the <strong id="world">World.</strong></div>
+	<div id="animated_waveform">
+	</div>
+	<div id="large_logo">
+		<%= image_tag "cans.svg" %>
+	</div>
 </section>
 
 <section id="main_search_bar_div">
@@ -32,10 +37,22 @@
 <script>
 	(function () {
 
+		var lrglogo = $('#animated_waveform, #large_logo');
 		var arrow = $('#down_arrow');
 
 		arrow.hide();
-		$( "#welcome_div" ).mouseenter(function() {
+
+		lrglogo.mouseenter(function(e) {
+			e.preventDefault();
+			$('#animated_waveform').css("background-position-x", "-170px");
+			$(this).mouseout(function(e) {
+				e.preventDefault();
+				$('#animated_waveform').css("background-position-x", "10px");
+			})
+		});
+
+		$( "#welcome_div" ).mouseenter(function(e) {
+			e.preventDefault();
 		  arrow.fadeIn(300);
 		});
 	   function runIt() {
