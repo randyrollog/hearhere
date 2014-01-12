@@ -24,11 +24,12 @@
 
 .text1 {
 	padding-top: 60px;
+	position: relative;
 }
 
 #animated_waveform {
 	position: absolute;
-	right: 202px;
+	right: 66px;
 	top: 167px;
 	transform: rotate(-32deg);
 	-ms-transform: rotate(-32deg);
@@ -44,7 +45,7 @@
 
 #large_logo {
 	position: absolute;
-	right: 140px;
+	right: 0;
 	top: 160px;
 	transform: rotate(-30deg);
 	-ms-transform: rotate(-30deg);
