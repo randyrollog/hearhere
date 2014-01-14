@@ -49,11 +49,6 @@
   </div>
 
 	<div class="sounds_container">
-	  <div id="tag_cloud" class="small-block-grid-2">
-	    <% tag_cloud Sound.tag_counts, %w[s m l] do |tag| %>
-	      <div class="single_tags"><%= link_to tag.name, tag_path(tag.name), class: "tags_class" %></div>
-	    <% end %>
-	  </div>
   	<%= render "recent" %>
   </div>
 
@@ -64,13 +59,63 @@
 
 <script defer="defer">
 
+  // function allowDrop(ev) {
+  //   ev.preventDefault();
+  // }
+
+  // function drop(ev) {
+  //   ev.preventDefault();
+  //   var data = ev.dataTransfer.getData("audio");
+  //   ev.target.appendChild(document.getElementById(data));
+
+  //   // var audio = document.createElement("audio");
+  //   // audio.setAttribute("src", ev.dataTransfer.files[0]);
+  //   // document.body.appendChild(audio);
+  //   console.log("Drop success");
+
+  // }
+
   $(document).ready(function() {
 
-    $('.pads').droppable({
-      drop: function(event, ui) {
-        
+    for(var i=1; i<17; i++) {
+      $('#pad' + i).droppable({
+        accept: "#ordered > div",
+        hoverClass: "ui-state-active",
+        drop: function(event, ui) {
+          event.preventDefault();
+          var sownd = new Sound(document.getElementById("sound_1").childNodes[11].childNodes[3]);
+          // this.appendChild( document.getElementById("sound_1").childNodes[11].childNodes[3] );
+          loadSample(ui.draggable);
+          console.log('dropped!');
+        }
+      })
+    };
+
+    function loadSample(sound) {
+      sound.find('audio');
+    };
+
+    document.body.onkeydown = function(event) {
+      event.preventDefault();
+
+      switch(event.which) {
+        // q
+        case 81:
+          var sound = document.getElementById("pad1").childNodes[1];
+          // workit.noteOn();
+          debugger;
+          sound.play();
+          changeColor("pad1");              
+        break;
+        // w
+        case 87:
+          makeit.noteOn();
+          changeColor("pad2");
+        break;
       }
-    })
+    }
+
+    
 
     var panel = document.getElementById("wx-uipanel");
 
@@ -197,7 +242,9 @@
           switch(event.which) {
             // q
             case 81:
-              workit.noteOn();
+              var sound = document.getElementById("pad1");
+              // workit.noteOn();
+              sound.play();
               changeColor("pad1");              
             break;
             // w

@@ -1,3 +1,39 @@
+<script> 
+
+  // function drag(ev) {    
+  //   ev.dataTransfer.setData("audio", ev.target.id);
+  // }
+
+  $(function() {
+
+    // add incremental ids to each sound
+    $('#ordered div').each(function(i,el){
+        el.id = "sound_" + (i+1);
+        // el.ondragstart = "drag(event)";
+    });
+
+    // $('#sound' + i).next('audio')
+ 
+    
+ 
+   // makes each sound draggable
+   for(var i = 1;  i<50; i++) {
+     $('#sound_' + i).draggable({ revert: "invalid" });
+   };
+
+   
+ 
+   $(".playback").click(function(e) {
+     e.preventDefault();
+     // This next line will get the audio element
+     // that is adjacent to the link that was clicked.
+     var song = $(this).next('audio').get(0);
+     song.play();
+    });
+  });
+
+</script>
+
 <div class="sounds" class="small-block-grid-2">
   <ul id="ordered" class="small-block-grid-2">
    <% @sounds.each do |sound| %>  
@@ -17,7 +53,7 @@
         <a class="playback" href="#">
           <%= image_tag "playbutton.svg", class: "play_btn" %>
         </a>
-        <%= audio_tag preview_path(sound.id), id: "preview_btn" %>
+        <%= audio_tag preview_path(sound.id), id: "preview_btn", ondragstart: "drag(event)" %>
       </li>
 
       <!-- user can rate the sound if logged in -->
@@ -28,31 +64,3 @@
   <div id="view_all"><%= link_to "View All", sounds_path, style: "color: white;" %></div>
 </div>
 
-<script> 
-
- $(function() {
-
-  // add incremental ids to each sound
-  $('#ordered div').each(function(i,el){
-      el.id = "sound_" + (i+1);
-  });
-
-  for(var i = 1;  i<10; i++) {
-    $('#sound_' + i).draggable({ revert: true });
-  };
-
-  
-
-  $(".playback").click(function(e) {
-    e.preventDefault();
-    // This next line will get the audio element
-    // that is adjacent to the link that was clicked.
-    var song = $(this).next('audio').get(0);
-      song.play();
-   });
-
-  
-
- });
-
-</script>
