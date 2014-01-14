@@ -10,27 +10,29 @@
 
 </script>
 
-<h1>Uploaded Sound File!</h1>
+<div class="page_container">
+	<h1>Uploaded Sound File!</h1>
 
-Name of sound: <%= @sound.sound_name %><br>
-File name: <%= @sound.sound_file_file_name %><br>
-File type: <%= @sound.sound_file_content_type %><br>
-File size: <%= @sound.sound_file_file_size %><br>
-File updated at: <%= @sound.sound_file_updated_at %><br>
-Description of sound: <%= @sound.description %><br>
-Rating: <%= @sound.ratings %><br>
-Location: <%= @sound.location %><br>
-User id: <%= @sound.user.user_name %><br>
-Sound created at: <%= @sound.created_at %><br>
-Sound updated at: <%= @sound.updated_at %><br>
+	Name of sound: <%= @sound.sound_name %><br>
+	File name: <%= @sound.sound_file_file_name %><br>
+	File type: <%= @sound.sound_file_content_type %><br>
+	File size: <%= @sound.sound_file_file_size %><br>
+	File updated at: <%= @sound.sound_file_updated_at %><br>
+	Description of sound: <%= @sound.description %><br>
+	Rating: <%= @sound.ratings %><br>
+	Location: <%= @sound.location %><br>
+	User id: <%= @sound.user.user_name %><br>
+	Sound created at: <%= @sound.created_at %><br>
+	Sound updated at: <%= @sound.updated_at %><br>
 
 
-<p id="edit_sound_p">
-  <!-- Placeholder for edit route. -->
-</p>
+	<p id="edit_sound_p">
+	  <!-- Placeholder for edit route. -->
+	</p>
 
-<%= button_to "Delete", user_sound_path(current_user, params[:id]), method: :delete %>
+	<%= button_to "Delete", user_sound_path(current_user, params[:id]), method: :delete %>
 
-<p>
-   <%= button_to "Show All Sounds", "/sounds", method: :get %>
-</p>
+	<p>
+	   <%= button_to "Show All Sounds", "/sounds", method: :get %>
+	</p>
+</div>

@@ -1,8 +1,3 @@
-<!-- <canvas id="wx-waveform2"></canvas> -->
-
-<div id="ui_container">
-</div>
-
 <div class="page_container">
 
   <div id="playback_controls">
@@ -48,32 +43,19 @@
     <div class="pads" id="pad16">;</div>
   </div>
 
-	<div class="sounds_container">
-  	<%= render "recent" %>
-  </div>
-
 	  <!-- <div><%# button_to "Back to Profile", user_path(current_user), method: :get %></div> -->
+</div>
+
+<div class="sounds_container">
+  <h3 id="sounds_index_header">PREVIEW OR DRAG SOUNDS TO PADS ABOVE</h3>
+  <div class="page_container">
+    <%= render "recent" %>
+  </div>
 </div>
 
 <canvas id="wx-waveform"></canvas>
 
 <script defer="defer">
-
-  // function allowDrop(ev) {
-  //   ev.preventDefault();
-  // }
-
-  // function drop(ev) {
-  //   ev.preventDefault();
-  //   var data = ev.dataTransfer.getData("audio");
-  //   ev.target.appendChild(document.getElementById(data));
-
-  //   // var audio = document.createElement("audio");
-  //   // audio.setAttribute("src", ev.dataTransfer.files[0]);
-  //   // document.body.appendChild(audio);
-  //   console.log("Drop success");
-
-  // }
 
   $(document).ready(function() {
 
@@ -86,21 +68,91 @@
 
           // finds the audio element
           var theSound = ui.draggable.context.childNodes[11].childNodes[3];
-
+          // var soundName = ui.draggable.context.
+          console.log(ui.draggable);
+          // console.log(ui.draggable.context.children.firstElementChild.text);
           var s1 = document.getElementById("sound_1").childNodes[11].childNodes[3];
           var s2 = document.getElementById("sound_2").childNodes[11].childNodes[3];
-          
-          // console.log(ui.draggable.context.childNodes[11].childNodes[3]);
-          
+          var s3 = document.getElementById("sound_3").childNodes[11].childNodes[3];
+          var s4 = document.getElementById("sound_4").childNodes[11].childNodes[3];
+          var s5 = document.getElementById("sound_5").childNodes[11].childNodes[3];
+          var s6 = document.getElementById("sound_6").childNodes[11].childNodes[3];
+          var s7 = document.getElementById("sound_7").childNodes[11].childNodes[3];
+          var s8 = document.getElementById("sound_8").childNodes[11].childNodes[3];
+          var s9 = document.getElementById("sound_9").childNodes[11].childNodes[3];
+          var s10 = document.getElementById("sound_10").childNodes[11].childNodes[3];
+          var s11 = document.getElementById("sound_11").childNodes[11].childNodes[3];
+          var s12 = document.getElementById("sound_12").childNodes[11].childNodes[3];
+          var s13 = document.getElementById("sound_13").childNodes[11].childNodes[3];
+          var s14 = document.getElementById("sound_14").childNodes[11].childNodes[3];
+          var s15 = document.getElementById("sound_15").childNodes[11].childNodes[3];
+          var s16 = document.getElementById("sound_16").childNodes[11].childNodes[3];
+          var s17 = document.getElementById("sound_17").childNodes[11].childNodes[3];
+          var s18 = document.getElementById("sound_18").childNodes[11].childNodes[3];
+          var s19 = document.getElementById("sound_19").childNodes[11].childNodes[3];
+          var s20 = document.getElementById("sound_20").childNodes[11].childNodes[3];
 
+          // could refactor for later haha
           if (s1 == theSound) {
-            // ( s1 ).appendTo($('#pad' + i));
             this.appendChild( s1 );
           }
           else if (s2 == theSound) {
             this.appendChild( s2 );
-          }      
-          
+          }
+          else if (s3 == theSound) {
+            this.appendChild( s3 );
+          }
+          else if (s4 == theSound) {
+            this.appendChild( s4 );
+          }
+          else if (s5 == theSound) {
+            this.appendChild( s5 );
+          }
+          else if (s6 == theSound) {
+            this.appendChild( s6 );
+          }
+          else if (s7 == theSound) {
+            this.appendChild( s7 );
+          }
+          else if (s8 == theSound) {
+            this.appendChild( s8 );
+          }
+          else if (s9 == theSound) {
+            this.appendChild( s9 );
+          }
+          else if (s10 == theSound) {
+            this.appendChild( s10 );
+          }
+          else if (s11 == theSound) {
+            this.appendChild( s11 );
+          }
+          else if (s12 == theSound) {
+            this.appendChild( s12 );
+          }
+          else if (s13 == theSound) {
+            this.appendChild( s13 );
+          }
+          else if (s14 == theSound) {
+            this.appendChild( s14 );
+          }
+          else if (s15 == theSound) {
+            this.appendChild( s15 );
+          }
+          else if (s16 == theSound) {
+            this.appendChild( s16 );
+          }
+          else if (s17 == theSound) {
+            this.appendChild( s17 );
+          }
+          else if (s18 == theSound) {
+            this.appendChild( s18 );
+          }
+          else if (s19 == theSound) {
+            this.appendChild( s19 );
+          }
+          else if (s20 == theSound) {
+            this.appendChild( s20 );
+          }
           console.log('dropped!');
         }
       })
@@ -116,14 +168,13 @@
         document.getElementById(pad_num).style.background="#ecb842";
         setTimeout(function () {
           document.getElementById(pad_num).style.backgroundColor = currentColor
-        }, 300);
+        }, 100);
       }
 
       switch(event.which) {
         // q
         case 81:
           var sound = document.getElementById("pad1").childNodes[1];
-          // workit.noteOn();
           sound.load();
           sound.play();
           changeColor("pad1");              
@@ -131,13 +182,115 @@
         // w
         case 87:
           var sound = document.getElementById("pad2").childNodes[1];
-          // workit.noteOn();
           sound.load();
           sound.play();
           changeColor("pad2");
         break;
-      }
-    }
+        // e
+        case 69:
+          var sound = document.getElementById("pad3").childNodes[1];
+          sound.load();
+          sound.play();
+          changeColor("pad3");
+        break;
+        // r
+        case 82:
+          var sound = document.getElementById("pad4").childNodes[1];
+          sound.load();
+          sound.play();
+          changeColor("pad4");
+        break;
+        // p
+        case 80:
+          var sound = document.getElementById("pad5").childNodes[1];
+          sound.load();
+          sound.play();
+          changeColor("pad5");
+        break;
+        // o
+        case 79:
+          var sound = document.getElementById("pad6").childNodes[1];
+          sound.load();
+          sound.play();
+          changeColor("pad6");
+        break;
+        // i
+        case 73:
+          var sound = document.getElementById("pad7").childNodes[1];
+          sound.load();
+          sound.play();
+          changeColor("pad7");
+        break;
+        // u
+        case 85:
+          var sound = document.getElementById("pad8").childNodes[1];
+          sound.load();
+          sound.play();
+          changeColor("pad8");
+        break;
+
+        // ============================
+
+        // a
+        case 65:
+          var sound = document.getElementById("pad9").childNodes[1];
+          sound.load();
+          sound.play();
+          changeColor("pad9");
+        break;
+        // s
+        case 83:
+          var sound = document.getElementById("pad10").childNodes[1];
+          sound.load();
+          sound.play();
+          changeColor("pad10");
+        break;
+        // d
+        case 68:
+          var sound = document.getElementById("pad11").childNodes[1];
+          sound.load();
+          sound.play();
+          changeColor("pad11");
+        break;
+        // f
+        case 70:
+          var sound = document.getElementById("pad12").childNodes[1];
+          sound.load();
+          sound.play();
+          changeColor("pad12");
+        break;
+        // ;
+        case 186:
+          var sound = document.getElementById("pad16").childNodes[1];
+          sound.load();
+          sound.play();
+          changeColor("pad16");
+        break;
+        // s
+        case 76:
+          var sound = document.getElementById("pad15").childNodes[1];
+          sound.load();
+          sound.play();
+          changeColor("pad15");
+        break;
+        // k
+        case 75:
+          var sound = document.getElementById("pad14").childNodes[1];
+          sound.load();
+          sound.play();
+          changeColor("pad14");          
+        break;
+        // j
+        case 74:
+          var sound = document.getElementById("pad13").childNodes[1];
+          sound.load();
+          sound.play();
+          changeColor("pad13");
+        break;
+      };
+    };
+
+    // }
 
     
 
@@ -260,15 +413,13 @@
             document.getElementById(pad_num).style.background="#ecb842";
             setTimeout(function () {
               document.getElementById(pad_num).style.backgroundColor = currentColor
-            }, 300);
+            }, 100);
           }
 
           switch(event.which) {
             // q
             case 81:
-              var sound = document.getElementById("pad1");
-              // workit.noteOn();
-              sound.play();
+              workit.noteOn();
               changeColor("pad1");              
             break;
             // w

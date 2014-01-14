@@ -15,8 +15,8 @@
     <article>Your Rating: <%= @user.avg_votes %></article>
     <br>
     <article id="feed">
-      <% current_user.sounds.each do |sound| %>
       <h2>Recent Activity</h2>
+      <% current_user.sounds.each do |sound| %>
         <div class="feed_table_wrapper">
           <div class="user_sound_tags">
               <ul>
