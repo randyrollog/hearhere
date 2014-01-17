@@ -7,8 +7,8 @@
 .sounds_container {
 	border-top: 9px solid burlywood;
 	width: 100%;
+	height: 420px;
 	background: #effff3;
-	overflow: hidden;
 	padding-bottom: 40px;
 	box-shadow: 0px -1px 17px grey;
 }
@@ -130,6 +130,10 @@ small {
 }
 .sound_tags:hover {
 	background: #ecb842;
+}
+
+.dropped_sound {
+	opacity: .3;
 }
 
 ul {
