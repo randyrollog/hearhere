@@ -69,90 +69,15 @@
 
           // finds the audio element
           var theSound = ui.draggable.context.childNodes[11].childNodes[3];
+
+          var soundArray = [];
+          soundArray.push(theSound);
           // var soundName = ui.draggable.context.
           console.log(ui.draggable);
-          // console.log(ui.draggable.context.children.firstElementChild.text);
-          var s1 = document.getElementById("sound_1").childNodes[11].childNodes[3];
-          var s2 = document.getElementById("sound_2").childNodes[11].childNodes[3];
-          var s3 = document.getElementById("sound_3").childNodes[11].childNodes[3];
-          var s4 = document.getElementById("sound_4").childNodes[11].childNodes[3];
-          var s5 = document.getElementById("sound_5").childNodes[11].childNodes[3];
-          var s6 = document.getElementById("sound_6").childNodes[11].childNodes[3];
-          var s7 = document.getElementById("sound_7").childNodes[11].childNodes[3];
-          var s8 = document.getElementById("sound_8").childNodes[11].childNodes[3];
-          var s9 = document.getElementById("sound_9").childNodes[11].childNodes[3];
-          var s10 = document.getElementById("sound_10").childNodes[11].childNodes[3];
-          var s11 = document.getElementById("sound_11").childNodes[11].childNodes[3];
-          var s12 = document.getElementById("sound_12").childNodes[11].childNodes[3];
-          var s13 = document.getElementById("sound_13").childNodes[11].childNodes[3];
-          var s14 = document.getElementById("sound_14").childNodes[11].childNodes[3];
-          var s15 = document.getElementById("sound_15").childNodes[11].childNodes[3];
-          var s16 = document.getElementById("sound_16").childNodes[11].childNodes[3];
-          var s17 = document.getElementById("sound_17").childNodes[11].childNodes[3];
-          var s18 = document.getElementById("sound_18").childNodes[11].childNodes[3];
-          var s19 = document.getElementById("sound_19").childNodes[11].childNodes[3];
-          var s20 = document.getElementById("sound_20").childNodes[11].childNodes[3];
 
-          // could refactor for later haha
-          if (s1 == theSound) {
-            this.appendChild( s1 );
-          }
-          else if (s2 == theSound) {
-            this.appendChild( s2 );
-          }
-          else if (s3 == theSound) {
-            this.appendChild( s3 );
-          }
-          else if (s4 == theSound) {
-            this.appendChild( s4 );
-          }
-          else if (s5 == theSound) {
-            this.appendChild( s5 );
-          }
-          else if (s6 == theSound) {
-            this.appendChild( s6 );
-          }
-          else if (s7 == theSound) {
-            this.appendChild( s7 );
-          }
-          else if (s8 == theSound) {
-            this.appendChild( s8 );
-          }
-          else if (s9 == theSound) {
-            this.appendChild( s9 );
-          }
-          else if (s10 == theSound) {
-            this.appendChild( s10 );
-          }
-          else if (s11 == theSound) {
-            this.appendChild( s11 );
-          }
-          else if (s12 == theSound) {
-            this.appendChild( s12 );
-          }
-          else if (s13 == theSound) {
-            this.appendChild( s13 );
-          }
-          else if (s14 == theSound) {
-            this.appendChild( s14 );
-          }
-          else if (s15 == theSound) {
-            this.appendChild( s15 );
-          }
-          else if (s16 == theSound) {
-            this.appendChild( s16 );
-          }
-          else if (s17 == theSound) {
-            this.appendChild( s17 );
-          }
-          else if (s18 == theSound) {
-            this.appendChild( s18 );
-          }
-          else if (s19 == theSound) {
-            this.appendChild( s19 );
-          }
-          else if (s20 == theSound) {
-            this.appendChild( s20 );
+          // add sounds that are selected to the sample board
+          for (var s = 0; s<soundArray.length; s++) {
+            this.appendChild(soundArray[s]);
           }
           console.log('dropped!');
         }
