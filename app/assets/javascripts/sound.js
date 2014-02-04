@@ -1,5 +1,26 @@
 $(document).ready(function() {
 
+  // add incremental ids to each sound
+  $('#ordered div').each(function(i,el){
+      el.id = "sound_" + (i+1);
+  }); 
+
+ // makes each sound draggable
+ for(var i = 1;  i<50; i++) {
+   $('#sound_' + i).draggable(
+    { revert: "invalid" }
+    );
+ };
+
+ $(".playback").click(function(e) {
+   e.preventDefault();
+   // This next line will get the audio element
+   // that is adjacent to the link that was clicked.
+   var song = $(this).next('audio').get(0);
+   song.load();
+   song.play();
+  });
+
   for(var i=1; i<17; i++) {
     $('#pad' + i).droppable({
       accept: "#ordered > div",
@@ -240,135 +261,104 @@ $(document).ready(function() {
     waveform.draw();
   })();
 
-  var playbtn = $("#play_song_btn_wrapper");
-  var stopbtn = $("#stop_song_btn_wrapper");
-
-  stopbtn.hide();
-
-  $('#song_selection').change(function(event) {
+  document.body.onkeydown = function(event) {
     event.preventDefault();
-
     
+    function changeColor(pad_num) {
+      // define original color
+      var currentColor = document.getElementById("pad1").style.backgroundColor;
+      // change color and set it back to og color after a little bit
+      document.getElementById(pad_num).style.background="#ecb842";
+      setTimeout(function () {
+        document.getElementById(pad_num).style.backgroundColor = currentColor
+      }, 100);
+    }
 
-    if($(this).val() == "1") {
+    switch(event.which) {
+      // q
+      case 81:
+        workit.noteOn();
+        changeColor("pad1");              
+      break;
+      // w
+      case 87:
+        makeit.noteOn();
+        changeColor("pad2");
+      break;
+      // e
+      case 69:
+        doit.noteOn();
+        changeColor("pad3");
+      break;
+      // r
+      case 82:
+        makesus.noteOn();
+        changeColor("pad4");
+      break;
+      // p
+      case 80:
+        harder.noteOn();
+        changeColor("pad5");
+      break;
+      // o
+      case 79:
+        better.noteOn();
+        changeColor("pad6");
+      break;
+      // i
+      case 73:
+        faster.noteOn();
+        changeColor("pad7");
+      break;
+      // u
+      case 85:
+        stronger.noteOn();
+        changeColor("pad8");
+      break;
 
-      $('#playback_controls').append('<%= audio_tag "trunc_HBFS.mp3", id: "daft_punk" %>');
+      // ============================
 
-      $("#play_song_btn_wrapper").click(function(event) {
-        event.preventDefault();
-        $("#daft_punk")[0].play();
-        $("#play_song_btn_wrapper").hide();
-        $("#stop_song_btn_wrapper").show();
-        return false;
-      })
-
-      $("#stop_song_btn_wrapper").click(function(event) {
-        event.preventDefault();
-        $("#daft_punk")[0].pause();
-        $("#play_song_btn_wrapper").show();
-        $("#stop_song_btn_wrapper").hide();
-        return false;
-      })
-
-      document.body.onkeydown = function(event) {
-        event.preventDefault();
-        
-        function changeColor(pad_num) {
-          // define original color
-          var currentColor = document.getElementById("pad1").style.backgroundColor;
-          // change color and set it back to og color after a little bit
-          document.getElementById(pad_num).style.background="#ecb842";
-          setTimeout(function () {
-            document.getElementById(pad_num).style.backgroundColor = currentColor
-          }, 100);
-        }
-
-        switch(event.which) {
-          // q
-          case 81:
-            workit.noteOn();
-            changeColor("pad1");              
-          break;
-          // w
-          case 87:
-            makeit.noteOn();
-            changeColor("pad2");
-          break;
-          // e
-          case 69:
-            doit.noteOn();
-            changeColor("pad3");
-          break;
-          // r
-          case 82:
-            makesus.noteOn();
-            changeColor("pad4");
-          break;
-          // p
-          case 80:
-            harder.noteOn();
-            changeColor("pad5");
-          break;
-          // o
-          case 79:
-            better.noteOn();
-            changeColor("pad6");
-          break;
-          // i
-          case 73:
-            faster.noteOn();
-            changeColor("pad7");
-          break;
-          // u
-          case 85:
-            stronger.noteOn();
-            changeColor("pad8");
-          break;
-
-          // ============================
-
-          // a
-          case 65:
-            morethan.noteOn();
-            changeColor("pad9");
-          break;
-          // s
-          case 83:
-            our.noteOn();
-            changeColor("pad10");
-          break;
-          // d
-          case 68:
-            power.noteOn();
-            changeColor("pad11");
-          break;
-          // f
-          case 70:
-            never.noteOn();
-             changeColor("pad12");
-          break;
-          // ;
-          case 186:
-            ever.noteOn();
-            changeColor("pad16");
-          break;
-          // s
-          case 76:
-            after.noteOn();
-            changeColor("pad15");
-          break;
-          // k
-          case 75:
-            workis.noteOn();
-            changeColor("pad14");            
-          break;
-          // j
-          case 74:
-            over.noteOn();
-            changeColor("pad13");
-          break;
-        };
-      };
+      // a
+      case 65:
+        morethan.noteOn();
+        changeColor("pad9");
+      break;
+      // s
+      case 83:
+        our.noteOn();
+        changeColor("pad10");
+      break;
+      // d
+      case 68:
+        power.noteOn();
+        changeColor("pad11");
+      break;
+      // f
+      case 70:
+        never.noteOn();
+         changeColor("pad12");
+      break;
+      // ;
+      case 186:
+        ever.noteOn();
+        changeColor("pad16");
+      break;
+      // s
+      case 76:
+        after.noteOn();
+        changeColor("pad15");
+      break;
+      // k
+      case 75:
+        workis.noteOn();
+        changeColor("pad14");            
+      break;
+      // j
+      case 74:
+        over.noteOn();
+        changeColor("pad13");
+      break;
     };
-  });
+  };
+
 });

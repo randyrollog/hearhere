@@ -5,8 +5,6 @@
     <select id="song_selection" class="pb_controllers">
       <option value="0" selected="selected" disabled="disabled">Choose A Daft Punk Song</option>
       <option value="1">Harder, Better, Faster, Stronger</option>
-      <option value="2">One More Time</option>
-      <option value="3">Aerodynamic</option>
     </select>
 
     <div id="play_song_btn_wrapper" class="pb_controllers">
@@ -49,3 +47,35 @@
 </div>
 
 <canvas id="wx-waveform"></canvas>
+
+<script>
+  var playbtn = $("#play_song_btn_wrapper");
+  var stopbtn = $("#stop_song_btn_wrapper");
+
+  stopbtn.hide();
+
+  $('#song_selection').change(function(event) {
+    event.preventDefault();
+
+    if($(this).val() === "1") {
+
+      $('#playback_controls').append('<%= audio_tag "trunc_HBFS.mp3", id: "daft_punk" %>');
+
+      $("#play_song_btn_wrapper").on('click', function(event) {
+        event.preventDefault();
+        $("#daft_punk")[0].play();
+        $("#play_song_btn_wrapper").hide();
+        $("#stop_song_btn_wrapper").show();
+        return false;
+      })
+
+      $("#stop_song_btn_wrapper").click(function(event) {
+        event.preventDefault();
+        $("#daft_punk")[0].pause();
+        $("#play_song_btn_wrapper").show();
+        $("#stop_song_btn_wrapper").hide();
+        return false;
+      })
+    };
+  });
+</script>
