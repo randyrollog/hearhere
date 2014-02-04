@@ -9,11 +9,7 @@ class Sound < ActiveRecord::Base
                     :s3_domain_url => "hearhereapp.s3.amazonaws.com",
                     :bucket => 'hearhereapp',
                     :s3_permissions => :public_read,
-                    :encode => 'utf8',
-                    :s3_credentials => {
-                      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-                      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-                    }
+                    :encode => 'utf8'
 
   # do not create a sound unless a sound file
   # is present
