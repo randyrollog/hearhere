@@ -6,8 +6,8 @@ class Sound < ActiveRecord::Base
 
   # for paperclip
   has_attached_file :sound_file,
-                    :s3_domain_url => "hearhereapp.s3.amazonaws.com",
-                    :bucket => 'hearhereapp',
+                    :s3_domain_url => "hearhereappbucket.s3.amazonaws.com",
+                    :bucket => 'hearhereappbucket',
                     :s3_permissions => :public_read,
                     :encode => 'utf8'
 
